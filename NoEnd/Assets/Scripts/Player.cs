@@ -83,7 +83,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _weapon.MoveWeapon(GetHandPosition());
+        if (_weapon)
+        {
+            _weapon.MoveWeapon(GetHandPosition());
+        }
     }
 
     void OnPress(InputAction.CallbackContext callbackContext)
