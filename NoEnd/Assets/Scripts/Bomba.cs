@@ -37,17 +37,18 @@ public class Bomba : MonoBehaviour
 
     void Update()
     {
-        float flashFrequency = _flashSpeed * (1f - (fuseTimer / 3f));
-        float lerp = Mathf.PingPong(Time.time * flashFrequency, 1f);
-        _meshRenderer.material.color = Color.Lerp(_originalColor, flashColor, lerp);
-        
         if (fuseTimer > 0)
         {
             fuseTimer -= Time.deltaTime;
+            
+            float flashFrequency = _flashSpeed * (1f - (fuseTimer / 3f));
+            float lerp = Mathf.PingPong(Time.time * flashFrequency, 1f);
+            _meshRenderer.material.color = Color.Lerp(_originalColor, flashColor, lerp);
         }
         else if (fuseTimer <= explosionStart && !_exploded)
         {
            Debug.Log("BOMBOCLAAAAT MI EXPLODED");
+            _meshRenderer.enabled = false;
            explosionParticles.Play();
            _explosionSfx.Play();
            _exploded = true;
