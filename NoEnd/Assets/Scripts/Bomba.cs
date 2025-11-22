@@ -9,13 +9,13 @@ public class Bomba : MonoBehaviour
     public float explosionRadius = 1.0f;
     
     private bool _exploded = false;
-    public Player player;
+    // public Player player;
     private AudioSource _explosionSfx; 
     
     void Start()
     {
         _explosionSfx = GetComponent<AudioSource>();
-        player = GameObject.FindAnyObjectByType<Player>();
+        // player = GameObject.FindAnyObjectByType<Player>();
     }
 
     void Update()
@@ -38,9 +38,9 @@ public class Bomba : MonoBehaviour
     {
         // Physics.OverlapSphereNonAlloc(Vector3.zero, 0.5f, new Collider[]);
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-        foreach (var VARIABLE in hitColliders)
+        foreach (var collider in hitColliders)
         {
-            if (VARIABLE.tag == "Player")
+            if (collider.CompareTag("Player"))
             {
                 Debug.Log("EXPLODED PLAYER");
                 //damage call
