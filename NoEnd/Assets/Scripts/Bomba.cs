@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Bomba : MonoBehaviour
 {
@@ -6,13 +7,13 @@ public class Bomba : MonoBehaviour
     public float fuseTimer = 3.0f;
     public float explosionRadius = 1.0f;
     
-    private bool exploded = false;
-    public Player _player;
-    public AudioSource audio; 
+    private bool _exploded = false;
+    public Player player;
+    private AudioSource _explosionSfx; 
     
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        _explosionSfx = GetComponent<AudioSource>();
         GameObject.FindAnyObjectByType<Player>();
     }
 
@@ -22,25 +23,25 @@ public class Bomba : MonoBehaviour
         {
             fuseTimer -= Time.deltaTime;
         }
-        else if (fuseTimer <= 0 && exploded == false)
+        else if (fuseTimer <= 0 && _exploded == false)
         {
            Debug.Log("BOMBOCLAAAAT EXPLOSION");
            Explosion(explosionRadius);
-           audio.Play();
-           exploded = true;
+           _explosionSfx.Play();
+           _exploded = true;
         }
     }
 
     void Explosion(float radius)
     {
         // Physics.OverlapSphereNonAlloc(Vector3.zero, 0.5f, new Collider[]);
-        //only take in player collider
-        
         Collider[] hitColliders = Physics.OverlapSphere(Vector3.zero, radius);
         foreach (var VARIABLE in hitColliders)
         {
-            Debug.Log("BOMBOCLAAAAT HIT");
-            //damage code
+            if (VARIABLE.tag == "Player")
+            {
+                Debug.Log("EXPLODED PLAYER");
+            }
         }
     }
 }
