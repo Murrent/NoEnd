@@ -8,9 +8,11 @@ public class Bomba : MonoBehaviour
     
     private bool exploded = false;
     public Player _player;
+    public AudioSource audio; 
     
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         GameObject.FindAnyObjectByType<Player>();
     }
 
@@ -24,6 +26,7 @@ public class Bomba : MonoBehaviour
         {
            Debug.Log("BOMBOCLAAAAT EXPLOSION");
            Explosion(explosionRadius);
+           audio.Play();
            exploded = true;
         }
     }
