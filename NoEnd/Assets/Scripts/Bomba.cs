@@ -30,6 +30,7 @@ public class Bomba : MonoBehaviour
            Explosion(explosionRadius);
            _explosionSfx.Play();
            _exploded = true;
+           // Destroy(this.gameObject);
         }
     }
 

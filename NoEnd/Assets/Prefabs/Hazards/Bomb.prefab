@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuseTimer: 3
-  explosionRadius: 1
+  explosionRadius: 1.82
   player: {fileID: 0}
 --- !u!1001 &6301117122695057125
 PrefabInstance:
