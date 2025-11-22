@@ -1,36 +1,62 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Bomba : MonoBehaviour
 {
+    //explosion variables
     [SerializeField]
     public float fuseTimer = 3.0f;
     public float explosionRadius = 1.0f;
-    
+    public float explosionStart = 1.5f;
     private bool _exploded = false;
-    // public Player player;
+    
+    //vfx
+    [SerializeField]
+    public Color flashColor;
+
+    [SerializeField]
+    public ParticleSystem explosionParticles; 
+
+    private float _flashSpeed = 5.0f;
+    private Color _originalColor;
+    MeshRenderer _meshRenderer;
+    
+    //sound
     private AudioSource _explosionSfx; 
     
     void Start()
     {
+        _meshRenderer = GetComponentInChildren<MeshRenderer>();
+        _originalColor = _meshRenderer.material.color;
+        
         _explosionSfx = GetComponent<AudioSource>();
-        // player = GameObject.FindAnyObjectByType<Player>();
+        explosionParticles.Stop();
     }
 
     void Update()
     {
+        float flashFrequency = _flashSpeed * (1f - (fuseTimer / 3f));
+        float lerp = Mathf.PingPong(Time.time * flashFrequency, 1f);
+        _meshRenderer.material.color = Color.Lerp(_originalColor, flashColor, lerp);
+        
         if (fuseTimer > 0)
         {
             fuseTimer -= Time.deltaTime;
         }
-        else if (fuseTimer <= 0 && !_exploded)
+        else if (fuseTimer <= explosionStart && !_exploded)
         {
-           Debug.Log("BOMBOCLAAAAT EXPLOSION");
-           Explosion(explosionRadius);
+           Debug.Log("BOMBOCLAAAAT MI EXPLODED");
+           explosionParticles.Play();
            _explosionSfx.Play();
            _exploded = true;
-           // Destroy(this.gameObject);
+           Explosion(explosionRadius);
+        }
+        
+        if (_exploded && !_explosionSfx.isPlaying)
+        {
+            Destroy(this.gameObject);
         }
     }
 
@@ -38,9 +64,9 @@ public class Bomba : MonoBehaviour
     {
         // Physics.OverlapSphereNonAlloc(Vector3.zero, 0.5f, new Collider[]);
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-        foreach (var collider in hitColliders)
+        foreach (var colliders in hitColliders)
         {
-            if (collider.CompareTag("Player"))
+            if (colliders.CompareTag("Player") || colliders.CompareTag("Enemy"))
             {
                 Debug.Log("EXPLODED PLAYER");
                 //damage call
