@@ -24,7 +24,7 @@ public class RotateY : MonoBehaviour
     void Update()
     {
         //rotates the spawner
-        transform.Rotate(Vector3.up, Time.deltaTime * 100f);
+        transform.Rotate(Vector3.up, Time.deltaTime * _spinSpeed);
         _timer += Time.deltaTime;
 
         if (_timer >= spawnInterval)
