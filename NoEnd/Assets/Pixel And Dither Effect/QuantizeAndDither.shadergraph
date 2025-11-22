@@ -1011,15 +1011,15 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 2601.0,
-            "y": -60.00001525878906
+            "x": 2601.000244140625,
+            "y": -28.000030517578126
         },
         "m_Blocks": []
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 2601.0,
-            "y": 139.99998474121095
+            "x": 2601.000244140625,
+            "y": 132.0
         },
         "m_Blocks": [
             {
@@ -1224,8 +1224,8 @@
     "m_ObjectId": "0ab3233408db4256b53cca931748fedf",
     "m_Title": "Dithering",
     "m_Position": {
-        "x": -3799.99951171875,
-        "y": -161.99998474121095
+        "x": -3800.000244140625,
+        "y": -162.00003051757813
     }
 }
 
@@ -1805,7 +1805,7 @@
     "m_Title": "Palette",
     "m_Position": {
         "x": 555.0,
-        "y": -119.0
+        "y": -119.00003051757813
     }
 }
 
@@ -2530,7 +2530,7 @@
     "m_Title": "Quantization",
     "m_Position": {
         "x": -1060.0,
-        "y": 27.99999237060547
+        "y": 27.999961853027345
     }
 }
 
@@ -3462,7 +3462,7 @@
     "m_Title": "Adding Dither to Render",
     "m_Position": {
         "x": -2141.0,
-        "y": 185.0
+        "y": 184.99996948242188
     }
 }
 
@@ -3855,8 +3855,8 @@
         "m_Position": {
             "serializedVersion": "2",
             "x": -1035.0,
-            "y": 429.0,
-            "width": 172.00006103515626,
+            "y": 427.0,
+            "width": 172.0,
             "height": 34.0
         }
     },
@@ -4575,7 +4575,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"f744f0d06d9b53d488d9d2c5e7ab8832\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -4755,7 +4755,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":8400000,\"guid\":\"62255847f17195e43a818c90e85b5326\",\"type\":2}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":8400000,\"guid\":\"3540570156e9ade488651e1f19d55444\",\"type\":2}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -5258,7 +5258,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"f744f0d06d9b53d488d9d2c5e7ab8832\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "isMainTexture": false,
