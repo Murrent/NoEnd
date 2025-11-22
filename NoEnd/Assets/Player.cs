@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,9 +14,13 @@ public class Player : MonoBehaviour
     InputActionReference _mousePressReference;
     InputAction _mousePress;
 
+
+    [SerializeField] private Weapon _weapon;
+
     bool _isDragging = false;
 
     Vector3 _startDragPosition;
+    Vector3 _handPosition;
 
     Plane _groundPlane = new Plane(Vector3.down, Vector3.zero);
 
@@ -78,6 +81,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        _weapon.MoveWeapon(GetHandPosition());
+    }
+
     void OnPress(InputAction.CallbackContext callbackContext)
     {
         _isDragging = true;
@@ -94,16 +102,12 @@ public class Player : MonoBehaviour
     {
         Ray ray = _camera.ScreenPointToRay(_mousePosition.ReadValue<Vector2>());
 
-        if(_groundPlane.Raycast(ray, out float distanceToGroundPlane))
+        if(_groundPlane.Raycast(ray, out var enter))
         {
-            Vector3 handPosition = ray.origin + ray.direction * distanceToGroundPlane - _camera.transform.forward;
-            return handPosition;
+            _handPosition = ray.GetPoint(enter) - _camera.transform.forward;
         }
-        else
-        {
-            Debug.LogError("Invalid ray", this);
-            return Vector3.zero;
-        }
+
+        return _handPosition;
     }
 
 #if UNITY_EDITOR
