@@ -42,12 +42,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1349324909574913269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 176e110ab80e5d7419849fa87d9db405, type: 3}
+  m_Script: {fileID: 11500000, guid: 57082cc265c40b14896f07fff3262397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
   _mousePositionReference: {fileID: 1096630063550008078, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _mousePressReference: {fileID: -2501706609991296890, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _weapon: {fileID: 0}
 --- !u!1 &3520524915872621538
 GameObject:
   m_ObjectHideFlags: 0

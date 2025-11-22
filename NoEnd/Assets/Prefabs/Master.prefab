@@ -124,7 +124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5578354519945465299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -331,10 +331,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 8427198796441667515, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 3540570156e9ade488651e1f19d55444, type: 2}
     - target: {fileID: 8879846811536319898, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
