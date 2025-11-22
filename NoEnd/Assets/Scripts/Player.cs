@@ -94,11 +94,19 @@ public class Player : MonoBehaviour
         _isDragging = true;
 
         _startDragPosition = GetHandPosition();
+        if (_weapon)
+        {
+            _weapon.Use();
+        }
     }
 
     void OnReleased(InputAction.CallbackContext callbackContext)
     {
         _isDragging = false;
+        if (_weapon)
+        {
+            _weapon.Release();
+        }
     }
 
     Vector3 GetHandPosition()
