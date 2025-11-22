@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,7 +15,7 @@ public class Bomba : MonoBehaviour
     void Start()
     {
         _explosionSfx = GetComponent<AudioSource>();
-        GameObject.FindAnyObjectByType<Player>();
+        player = GameObject.FindAnyObjectByType<Player>();
     }
 
     void Update()
@@ -23,7 +24,7 @@ public class Bomba : MonoBehaviour
         {
             fuseTimer -= Time.deltaTime;
         }
-        else if (fuseTimer <= 0 && _exploded == false)
+        else if (fuseTimer <= 0 && !_exploded)
         {
            Debug.Log("BOMBOCLAAAAT EXPLOSION");
            Explosion(explosionRadius);
@@ -35,7 +36,7 @@ public class Bomba : MonoBehaviour
     void Explosion(float radius)
     {
         // Physics.OverlapSphereNonAlloc(Vector3.zero, 0.5f, new Collider[]);
-        Collider[] hitColliders = Physics.OverlapSphere(Vector3.zero, radius);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         foreach (var VARIABLE in hitColliders)
         {
             if (VARIABLE.tag == "Player")
@@ -43,6 +44,20 @@ public class Bomba : MonoBehaviour
                 Debug.Log("EXPLODED PLAYER");
                 //damage call
             }
+        }
+    }
+    
+    void OnDrawGizmos()
+    {
+        if (_exploded)
+        {
+            Gizmos.color = new Color(1, 0, 0, 0.8f);
+            Gizmos.DrawSphere(transform.position, explosionRadius);
+        }
+        else
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, explosionRadius);
         }
     }
 }
