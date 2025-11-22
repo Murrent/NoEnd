@@ -41,6 +41,7 @@ public class Bomba : MonoBehaviour
             if (VARIABLE.tag == "Player")
             {
                 Debug.Log("EXPLODED PLAYER");
+                //damage call
             }
         }
     }
