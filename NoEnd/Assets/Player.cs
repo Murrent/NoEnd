@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
 
         if(_groundPlane.Raycast(ray, out float distanceToGroundPlane))
         {
-            Vector3 handPosition = ray.origin + ray.direction * distanceToGroundPlane + Vector3.up;
+            Vector3 handPosition = ray.origin + ray.direction * distanceToGroundPlane - _camera.transform.forward;
             return handPosition;
         }
         else
