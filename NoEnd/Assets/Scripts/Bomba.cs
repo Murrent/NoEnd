@@ -2,15 +2,42 @@ using UnityEngine;
 
 public class Bomba : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    public float fuseTimer = 3.0f;
+    public float explosionRadius = 1.0f;
+    
+    private bool exploded = false;
+    public Player _player;
+    
     void Start()
     {
-        
+        GameObject.FindAnyObjectByType<Player>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (fuseTimer > 0)
+        {
+            fuseTimer -= Time.deltaTime;
+        }
+        else if (fuseTimer <= 0 && exploded == false)
+        {
+           Debug.Log("BOMBOCLAAAAT EXPLOSION");
+           Explosion(explosionRadius);
+           exploded = true;
+        }
+    }
+
+    void Explosion(float radius)
+    {
+        // Physics.OverlapSphereNonAlloc(Vector3.zero, 0.5f, new Collider[]);
+        //only take in player collider
         
+        Collider[] hitColliders = Physics.OverlapSphere(Vector3.zero, radius);
+        foreach (var VARIABLE in hitColliders)
+        {
+            Debug.Log("BOMBOCLAAAAT HIT");
+            //damage code
+        }
     }
 }
