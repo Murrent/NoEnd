@@ -20,6 +20,10 @@ public class Arrow : MonoBehaviour
             transform.position = hit.point - _tip.TransformVector(_tip.localPosition);
             _rb.constraints = RigidbodyConstraints.FreezeAll;
             transform.SetParent(hit.transform);
+            if (hit.transform.TryGetComponent(out ImpactSpawner impactSpawner))
+            {
+                impactSpawner.SpawnImpact(hit.point, hit.normal);
+            }
             Destroy(_rb);
             Destroy(this);
             return;
