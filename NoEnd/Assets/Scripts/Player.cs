@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     Vector3 _handPosition;
 
     Plane _groundPlane = new Plane(Vector3.down, Vector3.zero);
+    
+    public const float HoldPosY = 0.5f; 
 
     private void OnEnable()
     {
@@ -192,7 +194,7 @@ public class Player : MonoBehaviour
                 return _handPosition;
             }
 
-            float oneUnitYMultiplier = 1.0f / forwardY;
+            float oneUnitYMultiplier = HoldPosY / forwardY;
             _handPosition = ray.GetPoint(enter) + _camera.transform.forward * oneUnitYMultiplier;
         }
 

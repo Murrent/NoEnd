@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Maul : Weapon
@@ -10,6 +9,7 @@ public class Maul : Weapon
 
     private void Start()
     {
+        transform.position = new Vector3(transform.position.x, Player.HoldPosY, transform.position.z);
         Unequip();
     }
 
