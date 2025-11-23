@@ -60,14 +60,14 @@ public class Enemy : MonoBehaviour
             Vector3 direction = (_target.position - transform.position).normalized;
             float speed = _rigidbody.linearVelocity.magnitude;
 
-            _rigidbody.AddForce(direction * _acceleration * _accelerationOverSpeed.Evaluate(speed / _maxSpeed));
+            _rigidbody.AddForce(direction * _acceleration * _accelerationOverSpeed.Evaluate(speed / _maxSpeed), ForceMode.Acceleration);
         }
         else
         {
             Vector3 direction = (transform.position - _target.position).normalized;
             float speed = _rigidbody.linearVelocity.magnitude;
 
-            _rigidbody.AddForce(direction * speed * _deceleration);
+            _rigidbody.AddForce(direction * speed * _deceleration, ForceMode.Acceleration);
         }
     }
 }
