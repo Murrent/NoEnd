@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class King : MonoBehaviour
@@ -16,6 +16,17 @@ public class King : MonoBehaviour
     NPCMovement _npcMovement;
 
     [SerializeField]
+    Animator _bannersAndBuisines;
+
+    [Header("Transition")]
+    [SerializeField]
+    float _transitionTime;
+
+    [SerializeField]
+    RawImage _transitionImage;
+
+    [Header("Carriage")]
+    [SerializeField]
     Transform _carriage;
 
     [SerializeField]
@@ -24,6 +35,7 @@ public class King : MonoBehaviour
     [SerializeField]
     float _carriageTravelDuration;
 
+    [Header("Flowers")]
     [SerializeField]
     Transform _flowerOrigin;
 
@@ -53,6 +65,8 @@ public class King : MonoBehaviour
         _carriageStartPosition = _carriage.position + Vector3.back * _carriageTravelDistance;
         _carriageEndPosition = _carriage.position + Vector3.forward * _carriageTravelDistance;
 
+        _carriage.transform.position = _carriageStartPosition;
+
         _npcMovement.enabled = false;
         _meshParent.SetActive(false);
 
@@ -79,6 +93,10 @@ public class King : MonoBehaviour
                 _flowers[i] = Instantiate(_flowerPrefab, position, Quaternion.identity);
             }
 
+            yield return TransitionIn_Coroutine();
+
+            _bannersAndBuisines.SetTrigger("banner");
+
             yield return CarriageEntersScreen_Coroutine();
 
             transform.position = _carriage.position - Vector3.up * _carriage.position.y;
@@ -97,6 +115,30 @@ public class King : MonoBehaviour
             OnDayEnd?.Invoke();
 
             yield return CarriageExitsScreen_Coroutine();
+
+            yield return TransitionOut_Coroutine();
+        }
+    }
+
+    IEnumerator TransitionIn_Coroutine()
+    {
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _transitionTime / 2.0f)
+        {
+            Color color = _transitionImage.color;
+            color.a = 1.0f - t;
+            _transitionImage.color = color;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    IEnumerator TransitionOut_Coroutine()
+    {
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _transitionTime / 2.0f)
+        {
+            Color color = _transitionImage.color;
+            color.a = t;
+            _transitionImage.color = color;
+            yield return new WaitForEndOfFrame();
         }
     }
 
