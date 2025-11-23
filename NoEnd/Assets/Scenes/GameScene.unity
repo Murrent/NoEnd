@@ -421,6 +421,18 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
+      propertyPath: _enemyPrefabs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
+      propertyPath: '_enemyPrefabs.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8261442162871721588, guid: 178022f57dd3b5f4aa1d30b8e5c0fa0c, type: 3}
+    - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
+      propertyPath: '_enemyPrefabs.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8261442162871721588, guid: 0e01f8cd5c510d5479f2a918b7683827, type: 3}
     - target: {fileID: 8260730402226956334, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.5
@@ -517,10 +529,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1953d75f959c40148af2f8c13f771b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnCooldown: 5
-  _spawnCount: 1
-  _enemiePrefabs:
-  - {fileID: 5944319400061867522, guid: 437ed3d4f0c712b4fa68c2997b1dd05f, type: 3}
+  _totalSpawnDuration: 0
+  _enemySpawnDistance: 0
+  _minObjectSpawnCount: 0
+  _maxObjectSpawnCount: 0
+  _maxObjectSpawnDistance: 0
+  _enemyPrefabs: []
+  _objectPrefabs: []
 --- !u!4 &1939524499
 Transform:
   m_ObjectHideFlags: 0

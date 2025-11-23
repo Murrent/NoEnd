@@ -160,7 +160,17 @@ public class Bomba : Weapon
     {
         Unequip();
     }
-    
+
+    public override void SetForce(Vector3 force)
+    {
+        
+    }
+
+    public override void SetDirection(Vector3 direction)
+    {
+        
+    }
+
     void OnDrawGizmos()
     {
         if (_exploded)
