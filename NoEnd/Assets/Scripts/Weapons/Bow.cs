@@ -16,7 +16,16 @@ public class Bow : Weapon
 
     private bool _isUsing = false;
     private float _bowStrength;
+    private Rigidbody _rb;
+    private Vector3 _lastPosition;
 
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+        _lastPosition = transform.position;
+        Unequip();
+    }
+    
     public override void MoveWeapon(Vector3 position)
     {
         if (_isUsing)
@@ -48,18 +57,23 @@ public class Bow : Weapon
                 );
             }
 
+            _lastPosition = transform.position;
             transform.position = position;
         }
     }
 
     public override void Equip()
     {
-        throw new System.NotImplementedException();
+        Vector3 pos = transform.position;
+        transform.position = new Vector3(pos.x, 1.0f, pos.z);
+        transform.rotation = Quaternion.identity;
+        _rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public override void Unequip()
     {
-        throw new System.NotImplementedException();
+        _rb.constraints = RigidbodyConstraints.None;
+        _rb.linearVelocity = (transform.position - _lastPosition) / Time.fixedDeltaTime;
     }
 
     public override void Use()
