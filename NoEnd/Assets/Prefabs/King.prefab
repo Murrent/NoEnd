@@ -87,6 +87,7 @@ MonoBehaviour:
   _transitionTime: 0
   _transitionImage: {fileID: 0}
   _transitionLabel: {fileID: 0}
+  _fanfareAudioSource: {fileID: 0}
   _carriage: {fileID: 0}
   _carriageTravelDistance: 12
   _carriageTravelDuration: 4
