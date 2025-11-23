@@ -15,7 +15,7 @@ public class Arrow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Physics.Linecast(_prevPosition, _tip.position, out var hit, _layerMask))
+        if (Physics.Linecast(_prevPosition, _tip.position, out var hit, _layerMask, QueryTriggerInteraction.Ignore))
         {
             transform.position = hit.point - _tip.TransformVector(_tip.localPosition);
             _rb.constraints = RigidbodyConstraints.FreezeAll;

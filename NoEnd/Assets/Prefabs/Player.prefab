@@ -48,6 +48,10 @@ MonoBehaviour:
   _camera: {fileID: 0}
   _mousePositionReference: {fileID: 1096630063550008078, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _mousePressReference: {fileID: -2501706609991296890, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _mousePressRightReference: {fileID: -3856179221716590653, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _pickupLayers:
+    serializedVersion: 2
+    m_Bits: 64
   _weapon: {fileID: 0}
 --- !u!1 &3520524915872621538
 GameObject:
