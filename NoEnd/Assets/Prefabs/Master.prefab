@@ -102,24 +102,31 @@ MonoBehaviour:
   _minObjectSpawnCount: 2
   _maxObjectSpawnCount: 5
   _maxObjectSpawnDistance: 10
-  _minStaticObjectSpawnCount: 0
-  _maxStaticObjectSpawnCount: 0
-  _minStaticSpawnDistance: 0
-  _maxStaticSpawnDistance: 0
+  _minStaticObjectSpawnCount: 3
+  _maxStaticObjectSpawnCount: 11
+  _minStaticSpawnDistance: 6
+  _maxStaticSpawnDistance: 9.5
   _enemyPrefabs:
-  - {fileID: 8261442162871721588, guid: 20c9d832c7b96b64aa7a73522d554df4, type: 3}
+  - {fileID: 5944319400061867522, guid: 672e48756144cb74db51b989f90422d0, type: 3}
   - {fileID: 5944319400061867522, guid: 437ed3d4f0c712b4fa68c2997b1dd05f, type: 3}
+  - {fileID: 8261442162871721588, guid: 178022f57dd3b5f4aa1d30b8e5c0fa0c, type: 3}
+  - {fileID: 8261442162871721588, guid: 20c9d832c7b96b64aa7a73522d554df4, type: 3}
+  - {fileID: 8261442162871721588, guid: b6d587c88e77ef14e9bd3252d3ef5e78, type: 3}
+  - {fileID: 8261442162871721588, guid: 78014d914b051584b885f7e4c759e090, type: 3}
+  - {fileID: 8261442162871721588, guid: 0e01f8cd5c510d5479f2a918b7683827, type: 3}
   - {fileID: 5784735057184942624, guid: 1346a233c841c354785c345c73bae18f, type: 3}
   - {fileID: 1623239384928684516, guid: ebdad0f5a2fd7314e9dc746650208c81, type: 3}
-  - {fileID: 5944319400061867522, guid: 672e48756144cb74db51b989f90422d0, type: 3}
-  - {fileID: 8261442162871721588, guid: 0e01f8cd5c510d5479f2a918b7683827, type: 3}
-  - {fileID: 8261442162871721588, guid: 178022f57dd3b5f4aa1d30b8e5c0fa0c, type: 3}
+  - {fileID: 5278462194478010973, guid: c735301c53c2b424cb70f3d407aae56b, type: 3}
   _objectPrefabs:
   - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
   - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
   - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
   - {fileID: 5561686185743256454, guid: dce6492b6862bad48a2c96d6de4a4f16, type: 3}
-  _staticObjectPrefabs: []
+  _staticObjectPrefabs:
+  - {fileID: 6559099544892432856, guid: a8ebc5d431b92bb47b67953f4604f71b, type: 3}
+  - {fileID: 102130046360206578, guid: 706d07b9b5850cc4cb9d2b2a80428b70, type: 3}
+  - {fileID: 3696772112440202658, guid: aa96cc42b4b10ca43ae1fc4ea2d580fb, type: 3}
+  - {fileID: 3497733802777548103, guid: e72ea51277c07a24597ecb4b2341286e, type: 3}
 --- !u!1 &683423224682006451
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8000483624667708329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1033,12 +1040,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349324909574913269, guid: 3780c2a0ab55b1a44a5a29622f77f8b5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1499615857246357781, guid: 3780c2a0ab55b1a44a5a29622f77f8b5, type: 3}
       propertyPath: _camera
       value: 
       objectReference: {fileID: 2346834091839791486}
+    - target: {fileID: 3520524915872621538, guid: 3780c2a0ab55b1a44a5a29622f77f8b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5665659569464148331, guid: 3780c2a0ab55b1a44a5a29622f77f8b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1360,7 +1371,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 976144447433921702, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9080103219224242287, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
