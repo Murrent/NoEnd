@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Enemy : MonoBehaviour
@@ -30,6 +31,10 @@ public class Enemy : MonoBehaviour
     Vector3 _previousPosition;
 
     float _distanceTraveled;
+    
+    //Chasing after cursor
+    [SerializeField] InputActionReference _mousePositionReference;
+    InputAction _mousePosition;
 
     private void Awake()
     {
@@ -70,4 +75,5 @@ public class Enemy : MonoBehaviour
             _rigidbody.AddForce(direction * speed * _deceleration, ForceMode.Acceleration);
         }
     }
+    
 }
