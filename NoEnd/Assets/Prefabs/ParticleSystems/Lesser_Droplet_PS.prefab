@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7134211727561861365}
   - component: {fileID: 537203489971693506}
   m_Layer: 9
-  m_Name: Droplet_PS
+  m_Name: Lesser_Droplet_PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 8
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -289,7 +289,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
+      scalar: 0.3
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -982,8 +982,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 20
-        minScalar: 5
+        scalar: 5
+        minScalar: 3
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -5946,7 +5946,7 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0.036733013
         - serializedVersion: 3
-          time: 0.47208318
+          time: 0.14278415
           value: 0
           inSlope: 0
           outSlope: 0
@@ -10071,7 +10071,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 0.75
       minScalar: 0.3
       maxCurve:
         serializedVersion: 2
