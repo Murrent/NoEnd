@@ -330,11 +330,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _totalSpawnDuration: 30
-  _spawnDistance: 18
+  _enemySpawnDistance: 18
+  _minObjectSpawnCount: 2
+  _maxObjectSpawnCount: 5
+  _maxObjectSpawnDistance: 10
   _enemyPrefabs:
   - {fileID: 5944319400061867522, guid: 437ed3d4f0c712b4fa68c2997b1dd05f, type: 3}
   - {fileID: 5784735057184942624, guid: 1346a233c841c354785c345c73bae18f, type: 3}
   - {fileID: 1623239384928684516, guid: ebdad0f5a2fd7314e9dc746650208c81, type: 3}
+  - {fileID: 8261442162871721588, guid: 20c9d832c7b96b64aa7a73522d554df4, type: 3}
+  _objectPrefabs:
+  - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
+  - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
+  - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
+  - {fileID: 5561686185743256454, guid: dce6492b6862bad48a2c96d6de4a4f16, type: 3}
 --- !u!1 &1871852014
 GameObject:
   m_ObjectHideFlags: 0

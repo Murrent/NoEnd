@@ -84,19 +84,18 @@ MonoBehaviour:
   _meshParent: {fileID: 4092805920848253758}
   _npcMovement: {fileID: 6523921981368304298}
   _bannersAndBuisines: {fileID: 0}
-  _transitionTime: 0
+  _transitionTime: 1.4
   _transitionImage: {fileID: 0}
   _transitionLabel: {fileID: 0}
-  _fanfareAudioSource: {fileID: 0}
   _carriage: {fileID: 0}
   _carriageTravelDistance: 12
   _carriageTravelDuration: 4
   _flowerOrigin: {fileID: 0}
-  _flowerMinSpawnRadius: 0
-  _flowerMaxSpawnRadius: 0
+  _flowerMinSpawnRadius: 1.5
+  _flowerMaxSpawnRadius: 5.5
   _flowerPrefab: {fileID: 0}
   _smellCount: 0
-  _smellDuration: 7
+  _smellDuration: 5
 --- !u!114 &9030976127270710841
 MonoBehaviour:
   m_ObjectHideFlags: 0

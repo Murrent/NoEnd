@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class King : MonoBehaviour
 {
+    public static Action OnDayInitialize;
     public static Action<int> OnDayBegin;
     public static Action OnDayEnd;
 
@@ -28,9 +29,6 @@ public class King : MonoBehaviour
 
     [SerializeField]
     TMP_Text _transitionLabel;
-
-    [SerializeField]
-    AudioSource _fanfareAudioSource;
 
     [Header("Carriage")]
     [SerializeField]
@@ -101,6 +99,8 @@ public class King : MonoBehaviour
 
                 _flowers[i] = Instantiate(_flowerPrefab, position, Quaternion.identity);
             }
+
+            OnDayInitialize?.Invoke();
 
             yield return TransitionIn_Coroutine();
 
@@ -181,10 +181,6 @@ public class King : MonoBehaviour
 
     IEnumerator CarriageEntersScreen_Coroutine()
     {
-        if(_carriage.TryGetComponent(out AudioSource aSource))
-        {
-            aSource.Play();
-        }
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _carriageTravelDuration)
         {
             _carriage.position = Vector3.Lerp(_carriageStartPosition, _carriageRestPosition, 1.0f - Mathf.Pow(1.0f - t, 4.0f));
@@ -193,15 +189,10 @@ public class King : MonoBehaviour
         }
 
         _carriage.position = _carriageRestPosition;
-        aSource?.Stop();
     }
 
     IEnumerator CarriageExitsScreen_Coroutine()
     {
-        if (_carriage.TryGetComponent(out AudioSource aSource))
-        {
-            aSource.Play();
-        }
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _carriageTravelDuration)
         {
             _carriage.position = Vector3.Lerp(_carriageRestPosition, _carriageEndPosition, Mathf.Pow(t, 4.0f));
@@ -210,7 +201,6 @@ public class King : MonoBehaviour
         }
 
         _carriage.position = _carriageEndPosition;
-        aSource?.Stop();
     }
 
     IEnumerator GoTo_Coroutine(Vector3 position)
