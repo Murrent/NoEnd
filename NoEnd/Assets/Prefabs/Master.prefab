@@ -53,6 +53,65 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 100, y: 20, z: 1}
   m_Center: {x: 0, y: 8, z: 0}
+--- !u!1 &490827601751065693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8975155637892568035}
+  - component: {fileID: 7562005439220904974}
+  m_Layer: 0
+  m_Name: Enemy Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8975155637892568035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490827601751065693}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 244061123650897631}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7562005439220904974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490827601751065693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1953d75f959c40148af2f8c13f771b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalSpawnDuration: 30
+  _enemySpawnDistance: 18
+  _minObjectSpawnCount: 2
+  _maxObjectSpawnCount: 5
+  _maxObjectSpawnDistance: 10
+  _enemyPrefabs:
+  - {fileID: 8261442162871721588, guid: 20c9d832c7b96b64aa7a73522d554df4, type: 3}
+  - {fileID: 5944319400061867522, guid: 437ed3d4f0c712b4fa68c2997b1dd05f, type: 3}
+  - {fileID: 5784735057184942624, guid: 1346a233c841c354785c345c73bae18f, type: 3}
+  - {fileID: 1623239384928684516, guid: ebdad0f5a2fd7314e9dc746650208c81, type: 3}
+  _objectPrefabs:
+  - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
+  - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
+  - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
+  - {fileID: 5561686185743256454, guid: dce6492b6862bad48a2c96d6de4a4f16, type: 3}
 --- !u!1 &683423224682006451
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +350,7 @@ Transform:
   - {fileID: 8260730402226956334}
   - {fileID: 4631617725213397417}
   - {fileID: 1420193673851780367}
+  - {fileID: 8975155637892568035}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2389028507747912188
@@ -1181,14 +1241,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 728204114637782024, guid: a482728a6c6ab54499234b664e522f82, type: 3}
     - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
-      propertyPath: _smellDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
-      propertyPath: _transitionTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
       propertyPath: _transitionImage
       value: 
       objectReference: {fileID: 7667309275058734975}
@@ -1204,14 +1256,6 @@ PrefabInstance:
       propertyPath: _bannersAndBuisines
       value: 
       objectReference: {fileID: 1277147418894825273}
-    - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
-      propertyPath: _flowerMaxSpawnRadius
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
-      propertyPath: _flowerMinSpawnRadius
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
       propertyPath: '_flowers.Array.data[0]'
       value: 
