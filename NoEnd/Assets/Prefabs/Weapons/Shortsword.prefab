@@ -1062,13 +1062,33 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 50789f77e7aeca64c8f515de9c33d036, type: 2}
+    - target: {fileID: -7334951474422550414, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -4570888915116111697, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 50789f77e7aeca64c8f515de9c33d036, type: 2}
+    - target: {fileID: -3573306828519436704, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -1484000759336623469, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
       propertyPath: m_Name
       value: weapon_shortsword
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2766212503428324877, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8032750206264916975, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
