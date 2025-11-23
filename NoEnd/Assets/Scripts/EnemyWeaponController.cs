@@ -58,7 +58,7 @@ public class EnemyWeaponController : MonoBehaviour
     {
         if (_weapon)
         {
-            _weapon.Unequip();
+            _weapon?.Unequip();
         }
     }
 

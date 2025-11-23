@@ -39,14 +39,12 @@ public class EnemyBombThrower : MonoBehaviour
         Vector3 spawnPos = _throwPoint.position + transform.forward * 0.5f;
         GameObject bombObj = Instantiate(_bombPrefab, spawnPos, Quaternion.identity);
     
-        bombObj.layer = LayerMask.NameToLayer("Pickable");
-    
         Bomba bomb = bombObj.GetComponent<Bomba>();
     
         if (bomb != null)
         {
             Vector3 direction = transform.forward;
-            bomb.ThrowFromEnemy(direction, _throwSpeed);
+            //bomb.ThrowFromEnemy(direction, _throwSpeed);
         
             Debug.Log($"{gameObject.name} threw bomb at {_target.name}!");
         }

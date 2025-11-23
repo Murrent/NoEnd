@@ -16,8 +16,8 @@ public class Bomba : Weapon
     
     //throwing
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private LayerMask _enemyLayers;
-    [SerializeField] private LayerMask _playerLayers;
+    private int _enemyLayers = 13;
+    private int _playerLayers = 12;
     private bool _isEquipped = false;
     private Vector3 _lastPosition;
     
@@ -34,8 +34,6 @@ public class Bomba : Weapon
 
     void Start()
     {
-        transform.position = new Vector3(transform.position.x, Player.HoldPosY, transform.position.z);
-        
         if (_rigidbody == null)
             _rigidbody = GetComponent<Rigidbody>();
             
@@ -97,12 +95,12 @@ public class Bomba : Weapon
     
     public void ThrowFromEnemy(Vector3 direction, float speed)
     {
+        transform.SetParent(null);
         if (_rigidbody == null)
             _rigidbody = GetComponent<Rigidbody>();
-        
         Debug.Log($"Throw direction: {direction}, speed: {speed}, final velocity: {direction * speed}");
     
-        _rigidbody.constraints = RigidbodyConstraints.None;
+        //_rigidbody.constraints = RigidbodyConstraints.None;
         _rigidbody.linearVelocity = direction * speed;
         
         _fuseStarted = true;
@@ -122,9 +120,9 @@ public class Bomba : Weapon
         gameObject.layer = isPlayer ? _playerLayers : _enemyLayers;
         
         Vector3 localPos = transform.localPosition;
-        transform.localPosition = new Vector3(localPos.x, 0.0f, localPos.z);
+        transform.localPosition = new Vector3(localPos.x, Player.HoldPosY, localPos.z);
         transform.rotation = Quaternion.identity;
-        _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        //_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         _rigidbody.linearVelocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
         
@@ -133,7 +131,7 @@ public class Bomba : Weapon
 
     public override void Unequip()
     {
-        gameObject.layer = LayerMask.NameToLayer("Pickable");
+        //gameObject.layer = LayerMask.NameToLayer("Pickable");
         _rigidbody.constraints = RigidbodyConstraints.None;
     
         Vector3 throwVelocity = (_rigidbody.position - _lastPosition) / Time.fixedDeltaTime;

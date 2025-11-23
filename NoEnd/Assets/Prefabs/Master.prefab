@@ -102,16 +102,24 @@ MonoBehaviour:
   _minObjectSpawnCount: 2
   _maxObjectSpawnCount: 5
   _maxObjectSpawnDistance: 10
+  _minStaticObjectSpawnCount: 0
+  _maxStaticObjectSpawnCount: 0
+  _minStaticSpawnDistance: 0
+  _maxStaticSpawnDistance: 0
   _enemyPrefabs:
   - {fileID: 8261442162871721588, guid: 20c9d832c7b96b64aa7a73522d554df4, type: 3}
   - {fileID: 5944319400061867522, guid: 437ed3d4f0c712b4fa68c2997b1dd05f, type: 3}
   - {fileID: 5784735057184942624, guid: 1346a233c841c354785c345c73bae18f, type: 3}
   - {fileID: 1623239384928684516, guid: ebdad0f5a2fd7314e9dc746650208c81, type: 3}
+  - {fileID: 5944319400061867522, guid: 672e48756144cb74db51b989f90422d0, type: 3}
+  - {fileID: 8261442162871721588, guid: 0e01f8cd5c510d5479f2a918b7683827, type: 3}
+  - {fileID: 8261442162871721588, guid: 178022f57dd3b5f4aa1d30b8e5c0fa0c, type: 3}
   _objectPrefabs:
   - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
   - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
   - {fileID: 3844394973339203640, guid: 8ce37ad550d52b74faf363017d5ae7fb, type: 3}
   - {fileID: 5561686185743256454, guid: dce6492b6862bad48a2c96d6de4a4f16, type: 3}
+  _staticObjectPrefabs: []
 --- !u!1 &683423224682006451
 GameObject:
   m_ObjectHideFlags: 0
