@@ -5,12 +5,13 @@ public class Maul : Weapon
 {
     [SerializeField] private Rigidbody _root;
     [SerializeField] private Rigidbody _end;
+    [SerializeField] private Collider[] _attackColliders;
     [SerializeField] private ConfigurableJoint _configurableJoint;
     [SerializeField] private ImpactEventSignaler _impactEventSignaler;
     [SerializeField] private ImpactLibrary.ImpactType _impactType;
     [SerializeField] private float _damage = 1;
-    [SerializeField] private LayerMask _enemyLayers;
-    [SerializeField] private LayerMask _playerLayers;
+    private int _enemyLayers = 13;
+    private int _playerLayers = 12;
     private bool _isEquipped = false;
     
     AudioSource _audioSource;
@@ -40,7 +41,12 @@ public class Maul : Weapon
 
     public override void Equip(bool isPlayer)
     {
-        _end.gameObject.layer = isPlayer ? _enemyLayers : _playerLayers;
+        int layer = isPlayer ? _playerLayers : _enemyLayers;
+        _end.gameObject.layer = layer;
+        foreach (var attackCollider in _attackColliders)
+        {
+            attackCollider.gameObject.layer = layer;
+        }
         Vector3 localPos = _end.transform.localPosition;
         _end.transform.localPosition = new Vector3(localPos.x, 0.0f, localPos.z);
         _end.transform.rotation = Quaternion.identity;
@@ -51,7 +57,11 @@ public class Maul : Weapon
 
     public override void Unequip()
     {
-        _end.gameObject.layer = _enemyLayers;
+        _end.gameObject.layer = _playerLayers;
+        foreach (var attackCollider in _attackColliders)
+        {
+            attackCollider.gameObject.layer = _playerLayers;
+        }
         _end.constraints = RigidbodyConstraints.None;
         _configurableJoint.connectedBody = null;
         _isEquipped = false;
