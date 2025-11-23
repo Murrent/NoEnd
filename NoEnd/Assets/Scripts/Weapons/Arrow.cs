@@ -22,7 +22,7 @@ public class Arrow : MonoBehaviour
             transform.SetParent(hit.transform);
             if (hit.transform.TryGetComponent(out ImpactSpawner impactSpawner))
             {
-                impactSpawner.SpawnImpact(hit.point, hit.normal);
+                impactSpawner.SpawnImpact(hit.point, hit.normal, ImpactLibrary.ImpactType.Blood);
             }
             Destroy(_rb);
             Destroy(this);

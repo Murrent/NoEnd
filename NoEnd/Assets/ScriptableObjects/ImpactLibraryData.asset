@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f4fa81779d4644cb1ab4b17c915d9d, type: 3}
+  m_Name: ImpactLibraryData
+  m_EditorClassIdentifier: 
+  impactPrefabs:
+  - {fileID: 3047759118954138869, guid: 0c12348d0b425504ea743bbb1f50764a, type: 3}
+  - {fileID: 3047759118954138869, guid: cd5a619f26ed9f64799525cc7114d514, type: 3}
+  - {fileID: 7388299229341257589, guid: 2cd82911b71b0df4690fc45045499301, type: 3}
