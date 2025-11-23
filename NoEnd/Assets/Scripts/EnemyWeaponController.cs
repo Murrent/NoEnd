@@ -56,11 +56,19 @@ public class EnemyWeaponController : MonoBehaviour
 
     private void OnDestroy()
     {
-        _weapon.Unequip();
+        if (_weapon)
+        {
+            _weapon.Unequip();
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
+        if (!_weapon)
+        {
+            return;
+        }
+
         if (_weaponType == WeaponType.Maul)
         {
             _animator.SetTrigger("attack");
