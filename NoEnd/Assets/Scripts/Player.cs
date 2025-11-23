@@ -133,7 +133,10 @@ public class Player : MonoBehaviour
         {
             if (hit.collider.TryGetComponent<Pickup>(out var pickup))
             {
-                return pickup;
+                if (!pickup.GetWeapon().IsEquipped())
+                {
+                    return pickup;
+                }
             }
         }
 
@@ -173,7 +176,7 @@ public class Player : MonoBehaviour
             if (pickup)
             {
                 _weapon = pickup.GetWeapon();
-                _weapon.Equip();
+                _weapon.Equip(true);
             }
         }
     }

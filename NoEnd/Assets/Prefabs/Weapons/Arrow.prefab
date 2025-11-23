@@ -107,10 +107,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593c2302f1eda2d4a9569feb3a1d19bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _layerMask:
+  _layerMaskEnemy:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 2048
+  _layerMaskPlayer:
+    serializedVersion: 2
+    m_Bits: 1024
   _tip: {fileID: 2795899896219133257}
+  shotByPlayer: 0
 --- !u!114 &8678424954287135166
 MonoBehaviour:
   m_ObjectHideFlags: 0

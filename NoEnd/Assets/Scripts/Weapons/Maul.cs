@@ -9,10 +9,14 @@ public class Maul : Weapon
     [SerializeField] private ImpactEventSignaler _impactEventSignaler;
     [SerializeField] private ImpactLibrary.ImpactType _impactType;
     [SerializeField] private float _damage = 1;
+    [SerializeField] private LayerMask _enemyLayers;
+    [SerializeField] private LayerMask _playerLayers;
+    private bool _isEquipped = false;
 
     private void Start()
     {
         transform.position = new Vector3(transform.position.x, Player.HoldPosY, transform.position.z);
+        if (_isEquipped) return;
         Unequip();
     }
 
@@ -31,19 +35,28 @@ public class Maul : Weapon
         _root.MovePosition(position);
     }
 
-    public override void Equip()
+    public override void Equip(bool isPlayer)
     {
+        _end.gameObject.layer = isPlayer ? _enemyLayers : _playerLayers;
         Vector3 localPos = _end.transform.localPosition;
         _end.transform.localPosition = new Vector3(localPos.x, 0.0f, localPos.z);
         _end.transform.rotation = Quaternion.identity;
         _end.constraints = RigidbodyConstraints.FreezePositionY;
         _configurableJoint.connectedBody = _end;
+        _isEquipped = true;
     }
 
     public override void Unequip()
     {
+        _end.gameObject.layer = _enemyLayers;
         _end.constraints = RigidbodyConstraints.None;
         _configurableJoint.connectedBody = null;
+        _isEquipped = false;
+    }
+
+    public override bool IsEquipped()
+    {
+        return _isEquipped;
     }
 
     public override void Use()
@@ -60,7 +73,7 @@ public class Maul : Weapon
         {
             impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal, _impactType);
         }
-        
+
         if (collision.gameObject.TryGetComponent(out IDamageable damageable))
         {
             int damage = Mathf.CeilToInt(collision.impulse.magnitude * _damage * 0.01f);

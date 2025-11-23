@@ -52,6 +52,12 @@ MonoBehaviour:
   _impactEventSignaler: {fileID: 3816147360978107557}
   _impactType: 2
   _damage: 5
+  _enemyLayers:
+    serializedVersion: 2
+    m_Bits: 2048
+  _playerLayers:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &3579629193840786450
 GameObject:
   m_ObjectHideFlags: 0
