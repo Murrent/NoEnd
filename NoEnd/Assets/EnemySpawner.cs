@@ -20,6 +20,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     float _maxObjectSpawnDistance;
 
+    [SerializeField]
+    int _minStaticObjectSpawnCount;
+    [SerializeField]
+    int _maxStaticObjectSpawnCount;
+
+    [SerializeField]
+    float _minStaticSpawnDistance;
+    [SerializeField]
+    float _maxStaticSpawnDistance;
+
     int _spawnCount = 0;
     int _maxSpawnCount;
 
@@ -31,6 +41,9 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     GameObject[] _objectPrefabs;
+
+    [SerializeField]
+    GameObject[] _staticObjectPrefabs;
 
     List<GameObject> _spawnedGameObjects = new List<GameObject>();
 
@@ -54,17 +67,30 @@ public class EnemySpawner : MonoBehaviour
 
     void Initialize()
     {
-        Debug.Log("Initializing");
-
-        int objectCount = Random.Range(_minObjectSpawnCount, _maxObjectSpawnCount);
-        for (int i = 0; i < objectCount; ++i)
         {
-            Vector2 offsetXY = Random.insideUnitCircle * _maxObjectSpawnDistance;
-            Vector3 offset = new Vector3(offsetXY.x, 0.0f, offsetXY.y);
+            int objectCount = Random.Range(_minObjectSpawnCount, _maxObjectSpawnCount);
+            for (int i = 0; i < objectCount; ++i)
+            {
+                Vector2 offsetXY = Random.insideUnitCircle * _maxObjectSpawnDistance;
+                Vector3 offset = new Vector3(offsetXY.x, 0.0f, offsetXY.y);
 
-            int randomEnemyIndex = Random.Range(0, _objectPrefabs.Length);
+                int randomIndex = Random.Range(0, _objectPrefabs.Length);
 
-            _spawnedGameObjects.Add(Instantiate(_objectPrefabs[randomEnemyIndex], transform.position + offset, Quaternion.identity));
+                _spawnedGameObjects.Add(Instantiate(_objectPrefabs[randomIndex], transform.position + offset, Quaternion.identity));
+            }
+        }
+
+        {
+            int objectCount = Random.Range(_minStaticObjectSpawnCount, _maxStaticObjectSpawnCount);
+            for (int i = 0; i < objectCount; ++i)
+            {
+                Vector2 offsetXY = Random.insideUnitCircle.normalized * _minStaticSpawnDistance;
+                Vector3 offset = new Vector3(offsetXY.x, 0.0f, offsetXY.y);
+
+                int randomIndex = Random.Range(0, _staticObjectPrefabs.Length);
+
+                _spawnedGameObjects.Add(Instantiate(_staticObjectPrefabs[randomIndex], transform.position + offset, Quaternion.identity));
+            }
         }
     }
 
