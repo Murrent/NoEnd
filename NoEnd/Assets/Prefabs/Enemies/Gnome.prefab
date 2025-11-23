@@ -180,7 +180,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 8
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -195,7 +195,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &5129531262082858427
 CapsuleCollider:
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70af1bb440a5a714f9230ac287dd0abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 6
+  healthPoints: 3
   _npcMovement: {fileID: 3358483355303703273}
 --- !u!114 &3358483355303703273
 MonoBehaviour:

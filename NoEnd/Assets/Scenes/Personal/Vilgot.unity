@@ -333,6 +333,8 @@ MonoBehaviour:
   _spawnDistance: 18
   _enemyPrefabs:
   - {fileID: 5944319400061867522, guid: 437ed3d4f0c712b4fa68c2997b1dd05f, type: 3}
+  - {fileID: 5784735057184942624, guid: 1346a233c841c354785c345c73bae18f, type: 3}
+  - {fileID: 1623239384928684516, guid: ebdad0f5a2fd7314e9dc746650208c81, type: 3}
 --- !u!1 &1871852014
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +506,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1700169808251597532, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948997469962655775, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
+      propertyPath: _smellDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948997469962655775, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
+      propertyPath: _transitionTime
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948997469962655775, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
+      propertyPath: _flowerMaxSpawnRadius
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948997469962655775, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
+      propertyPath: _flowerMinSpawnRadius
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1989455771580249106, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: m_IsActive
@@ -525,10 +543,6 @@ PrefabInstance:
     - target: {fileID: 4941320266565059955, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260730402226956334, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
