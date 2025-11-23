@@ -1378,6 +1378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carriage
       objectReference: {fileID: 0}
+    - target: {fileID: 1232955985483256130, guid: f0a1899891f49bb4ebfa233433997589, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8748814806633995463, guid: f0a1899891f49bb4ebfa233433997589, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
