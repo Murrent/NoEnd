@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f96ea95452c9e240b0092639845151a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _threshold: 0.01
+  _threshold: 20
 --- !u!1 &384829939707569964
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +431,8 @@ MonoBehaviour:
   _end: {fileID: 5454590357372744728}
   _configurableJoint: {fileID: 1691785856421813171}
   _impactEventSignaler: {fileID: 2985242170657344376}
+  _impactType: 0
+  _damage: 1
 --- !u!1001 &6226252315937890562
 PrefabInstance:
   m_ObjectHideFlags: 0
