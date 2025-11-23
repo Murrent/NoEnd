@@ -16,6 +16,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "MousePressRight",
+                    "type": "Button",
+                    "id": "2698663d-b789-4221-ae66-fd8d2abead51",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "MousePosition",
                     "type": "Value",
                     "id": "013f4761-1121-4172-8c82-5140bde68ce3",
@@ -151,6 +160,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "MousePress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d6482c0-5bf5-4b98-bddb-4f7e9c208b76",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MousePressRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

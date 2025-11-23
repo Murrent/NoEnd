@@ -3,18 +3,18 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    Camera _camera;
+    [SerializeField] Camera _camera;
 
-    [SerializeField]
-    InputActionReference _mousePositionReference;
+    [SerializeField] InputActionReference _mousePositionReference;
     InputAction _mousePosition;
 
-    [SerializeField]
-    InputActionReference _mousePressReference;
+    [SerializeField] InputActionReference _mousePressReference;
     InputAction _mousePress;
 
+    [SerializeField] InputActionReference _mousePressRightReference;
+    InputAction _mousePressRight;
 
+    [SerializeField] private LayerMask _pickupLayers;
     [SerializeField] private Weapon _weapon;
 
     bool _isDragging = false;
@@ -31,6 +31,12 @@ public class Player : MonoBehaviour
             _mousePress.performed += OnPress;
             _mousePress.canceled += OnReleased;
         }
+
+        if (_mousePressRight is not null)
+        {
+            _mousePressRight.performed += OnPressRight;
+            _mousePressRight.canceled += OnReleasedRight;
+        }
     }
 
     private void OnDisable()
@@ -40,14 +46,21 @@ public class Player : MonoBehaviour
             _mousePress.performed -= OnPress;
             _mousePress.canceled -= OnReleased;
         }
+
+        if (_mousePressRight is not null)
+        {
+            _mousePressRight.performed -= OnPressRight;
+            _mousePressRight.canceled -= OnReleasedRight;
+        }
     }
 
     private void Awake()
     {
-        if(!_camera)
+        if (!_camera)
         {
             _camera = Camera.main;
-            Debug.LogWarning($"No \"_camera\" is assigned to gameobject \"{gameObject.name}\", assuming main camera", this);
+            Debug.LogWarning($"No \"_camera\" is assigned to gameobject \"{gameObject.name}\", assuming main camera",
+                this);
         }
 
         if (_mousePositionReference)
@@ -57,7 +70,9 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"No \"_mousePositionReference\" input action reference is assigned to gameobject \"{gameObject.name}\"", this);
+            Debug.LogError(
+                $"No \"_mousePositionReference\" input action reference is assigned to gameobject \"{gameObject.name}\"",
+                this);
         }
 
         if (_mousePressReference)
@@ -69,7 +84,23 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"No \"_mousePressReference\" input action reference is assigned to gameobject \"{gameObject.name}\"", this);
+            Debug.LogError(
+                $"No \"_mousePressReference\" input action reference is assigned to gameobject \"{gameObject.name}\"",
+                this);
+        }
+
+        if (_mousePressRightReference)
+        {
+            _mousePressRight = _mousePressRightReference.ToInputAction();
+            _mousePressRight.Enable();
+
+            _mousePressRight.performed += OnPressRight;
+        }
+        else
+        {
+            Debug.LogError(
+                $"No \"_mousePressRightReference\" input action reference is assigned to gameobject \"{gameObject.name}\"",
+                this);
         }
     }
 
@@ -87,6 +118,24 @@ public class Player : MonoBehaviour
         {
             _weapon.MoveWeapon(GetHandPosition());
         }
+        else
+        {
+            Pickup pickup = FindPickup();
+        }
+    }
+
+    Pickup FindPickup()
+    {
+        Ray ray = _camera.ScreenPointToRay(_mousePosition.ReadValue<Vector2>());
+        if (Physics.Raycast(ray.origin, ray.direction, out var hit, 10000, _pickupLayers, QueryTriggerInteraction.Collide))
+        {
+            if (hit.collider.TryGetComponent<Pickup>(out var pickup))
+            {
+                return pickup;
+            }
+        }
+
+        return null;
     }
 
     void OnPress(InputAction.CallbackContext callbackContext)
@@ -109,13 +158,42 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnPressRight(InputAction.CallbackContext callbackContext)
+    {
+        if (_weapon)
+        {
+            _weapon.Unequip();
+            _weapon = null;
+        }
+        else
+        {
+            Pickup pickup = FindPickup();
+            if (pickup)
+            {
+                _weapon = pickup.GetWeapon();
+                _weapon.Equip();
+            }
+        }
+    }
+
+    void OnReleasedRight(InputAction.CallbackContext callbackContext)
+    {
+    }
+
     Vector3 GetHandPosition()
     {
         Ray ray = _camera.ScreenPointToRay(_mousePosition.ReadValue<Vector2>());
 
-        if(_groundPlane.Raycast(ray, out var enter))
+        if (_groundPlane.Raycast(ray, out var enter))
         {
-            _handPosition = ray.GetPoint(enter) - _camera.transform.forward;
+            float forwardY = _camera.transform.forward.y;
+            if (forwardY == 0.0f)
+            {
+                return _handPosition;
+            }
+
+            float oneUnitYMultiplier = 1.0f / forwardY;
+            _handPosition = ray.GetPoint(enter) + _camera.transform.forward * oneUnitYMultiplier;
         }
 
         return _handPosition;

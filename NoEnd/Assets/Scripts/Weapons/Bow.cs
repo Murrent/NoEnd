@@ -52,6 +52,16 @@ public class Bow : Weapon
         }
     }
 
+    public override void Equip()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Unequip()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void Use()
     {
         _isUsing = true;
