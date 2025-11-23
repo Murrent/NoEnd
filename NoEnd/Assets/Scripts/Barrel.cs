@@ -6,6 +6,10 @@ public class Barrel : MonoBehaviour, IDamageable
     [SerializeField] private int _hp = 4;
     [SerializeField] private GameObject _spawnOnDeathPrefab;
     bool _isDead;
+    public bool dead
+    {
+        get {  return _isDead; }
+    }
     
     public void TakeDamage(int damage)
     {

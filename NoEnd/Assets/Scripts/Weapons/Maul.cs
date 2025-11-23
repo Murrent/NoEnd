@@ -70,6 +70,13 @@ public class Maul : Weapon
             int damage = Mathf.CeilToInt(collision.impulse.magnitude * _damage * 0.01f);
             damageable.TakeDamage(damage);
             _audioSource.Play();
+            if(damageable.dead)
+            {
+                if (collision.gameObject.TryGetComponent(out ImpactSpawner aImpactSpawner))
+                {
+                    impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal, ImpactLibrary.ImpactType.BloodBig);
+                }
+            }
         }
     }
 }
