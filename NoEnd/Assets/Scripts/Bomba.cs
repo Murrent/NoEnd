@@ -35,7 +35,7 @@ public class Bomba : MonoBehaviour
         explosionParticles.Stop();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (fuseTimer > 0)
         {

@@ -21,7 +21,7 @@ public class RotateY : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         //rotates the spawner
         transform.Rotate(Vector3.up, Time.deltaTime * _spinSpeed);
