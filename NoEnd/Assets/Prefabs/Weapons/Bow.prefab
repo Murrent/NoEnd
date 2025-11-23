@@ -60,6 +60,9 @@ MonoBehaviour:
   _maxDisplayArrowDrag: -0.7
   _bowMeshRenderer: {fileID: 36083404222695726}
   _blendShapeMax: 100
+  _rb: {fileID: 6025066758954689139}
+  _colliders:
+  - {fileID: 7916870399220430932}
 --- !u!54 &6025066758954689139
 Rigidbody:
   m_ObjectHideFlags: 0

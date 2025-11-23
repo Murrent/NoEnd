@@ -80,6 +80,16 @@ public class Maul : Weapon
     {
     }
 
+    public override void SetForce(Vector3 force)
+    {
+        
+    }
+
+    public override void SetDirection(Vector3 direction)
+    {
+        
+    }
+
     private void OnImpact(Collision collision)
     {
         if (collision.gameObject.TryGetComponent(out ImpactSpawner impactSpawner))

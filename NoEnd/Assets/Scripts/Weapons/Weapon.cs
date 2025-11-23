@@ -8,4 +8,6 @@ public abstract class Weapon : MonoBehaviour
     public abstract bool IsEquipped();
     public abstract void Use();
     public abstract void Release();
+    public abstract void SetForce(Vector3 force);
+    public abstract void SetDirection(Vector3 direction);
 }
