@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Maul : Weapon
@@ -5,10 +6,21 @@ public class Maul : Weapon
     [SerializeField] private Rigidbody _root;
     [SerializeField] private Rigidbody _end;
     [SerializeField] private ConfigurableJoint _configurableJoint;
+    [SerializeField] private ImpactEventSignaler _impactEventSignaler;
 
     private void Start()
     {
         Unequip();
+    }
+
+    private void OnEnable()
+    {
+        _impactEventSignaler.OnImpact += OnImpact;
+    }
+
+    private void OnDisable()
+    {
+        _impactEventSignaler.OnImpact -= OnImpact;
     }
 
     public override void MoveWeapon(Vector3 position)
@@ -37,5 +49,13 @@ public class Maul : Weapon
 
     public override void Release()
     {
+    }
+
+    private void OnImpact(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out ImpactSpawner impactSpawner))
+        {
+            impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal);
+        }
     }
 }

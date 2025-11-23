@@ -381,6 +381,7 @@ MonoBehaviour:
   _root: {fileID: 3341302886993902739}
   _end: {fileID: 4745425531063289707}
   _configurableJoint: {fileID: 3876322824795084636}
+  _impactEventSignaler: {fileID: 3828258811960719382}
 --- !u!1 &3760075848020030271
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +394,7 @@ GameObject:
   - component: {fileID: 4506378706563893483}
   - component: {fileID: 2281267060971747585}
   - component: {fileID: 4745425531063289707}
+  - component: {fileID: 3828258811960719382}
   m_Layer: 0
   m_Name: End
   m_TagString: Untagged
@@ -498,6 +500,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &3828258811960719382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760075848020030271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f96ea95452c9e240b0092639845151a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _threshold: 0.01
 --- !u!1 &4277788438495614401
 GameObject:
   m_ObjectHideFlags: 0
