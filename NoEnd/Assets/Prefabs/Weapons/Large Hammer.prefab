@@ -48,16 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _root: {fileID: 4869082888290591205}
   _end: {fileID: 7174520938024563009}
+  _attackColliders:
+  - {fileID: 6396972680011292807}
+  - {fileID: 8145407659376125949}
   _configurableJoint: {fileID: 309070971158885886}
   _impactEventSignaler: {fileID: 3816147360978107557}
   _impactType: 2
   _damage: 5
-  _enemyLayers:
-    serializedVersion: 2
-    m_Bits: 8192
-  _playerLayers:
-    serializedVersion: 2
-    m_Bits: 4096
 --- !u!1 &3579629193840786450
 GameObject:
   m_ObjectHideFlags: 0
