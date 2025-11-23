@@ -7,7 +7,7 @@ public class ImpactSpawner : MonoBehaviour
 
     public void SpawnImpact(Vector3 point, Vector3 normal)
     {
-        var obj = Instantiate(_impact, point + normal, transform.rotation);
+        var obj = Instantiate(_impact, point, transform.rotation);
         obj.transform.up = normal;
         if (_useThisAsParent)
         {
