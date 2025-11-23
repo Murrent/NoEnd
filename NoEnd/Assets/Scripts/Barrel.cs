@@ -5,6 +5,7 @@ public class Barrel : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _hp = 4;
     [SerializeField] private GameObject _spawnOnDeathPrefab;
+    [SerializeField] private Transform _spawnpoint;
     bool _isDead;
     public bool dead
     {
@@ -18,7 +19,7 @@ public class Barrel : MonoBehaviour, IDamageable
         if (_hp <= 0)
         {
             _isDead = true;
-            Instantiate(_spawnOnDeathPrefab, transform.position, transform.rotation);
+            Instantiate(_spawnOnDeathPrefab, _spawnpoint.position, _spawnpoint.rotation);
             Destroy(gameObject);
         }
     }
