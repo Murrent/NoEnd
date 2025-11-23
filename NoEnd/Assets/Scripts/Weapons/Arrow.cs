@@ -1,12 +1,15 @@
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Arrow : MonoBehaviour
 {
-    [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private LayerMask _layerMaskEnemy;
+    [SerializeField] private LayerMask _layerMaskPlayer;
     [SerializeField] private Transform _tip;
     private Rigidbody _rb;
     private Vector3 _prevPosition;
+    public bool shotByPlayer = false;
 
     void Start()
     {
@@ -16,7 +19,12 @@ public class Arrow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Physics.Linecast(_prevPosition, _tip.position, out var hit, _layerMask, QueryTriggerInteraction.Ignore))
+        var layers = _layerMaskPlayer;
+        if (shotByPlayer)
+        {
+            layers = _layerMaskEnemy;
+        }
+        if (Physics.Linecast(_prevPosition, _tip.position, out var hit, layers, QueryTriggerInteraction.Ignore))
         {
             transform.position = hit.point - _tip.TransformVector(_tip.localPosition);
             _rb.constraints = RigidbodyConstraints.FreezeAll;

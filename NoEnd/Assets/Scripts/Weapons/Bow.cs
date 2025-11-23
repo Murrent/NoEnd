@@ -18,11 +18,17 @@ public class Bow : Weapon
     private float _bowStrength;
     private Rigidbody _rb;
     private Vector3 _lastPosition;
+    private bool _isEquipped = false;
+    private bool _isEquippedByPlayer = false;
+    private AudioSource _sfx;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _sfx = GetComponent<AudioSource>();
         _lastPosition = transform.position;
+        
+        if (_isEquipped) return;
         Unequip();
     }
     
@@ -62,18 +68,27 @@ public class Bow : Weapon
         }
     }
 
-    public override void Equip()
+    public override void Equip(bool isPlayer)
     {
+        _isEquippedByPlayer = isPlayer;
         Vector3 pos = transform.position;
         transform.position = new Vector3(pos.x, 1.0f, pos.z);
         transform.rotation = Quaternion.identity;
         _rb.constraints = RigidbodyConstraints.FreezeAll;
+        _isEquipped = true;
     }
 
     public override void Unequip()
     {
+        _isEquippedByPlayer = false;
         _rb.constraints = RigidbodyConstraints.None;
         _rb.linearVelocity = (transform.position - _lastPosition) / Time.fixedDeltaTime;
+        _isEquipped = false;
+    }
+
+    public override bool IsEquipped()
+    {
+        return _isEquipped;
     }
 
     public override void Use()
@@ -85,8 +100,10 @@ public class Bow : Weapon
     {
         var obj = Instantiate(_arrowPrefab, _arrowSpawnPoint.position, _arrowSpawnPoint.rotation);
         obj.GetComponent<Rigidbody>().linearVelocity = _arrowSpawnPoint.forward * _arrowSpeed * _bowStrength;
+        obj.GetComponent<Arrow>().shotByPlayer = _isEquippedByPlayer;
         _bowMeshRenderer.SetBlendShapeWeight(0, 0);
         _displayArrow.localPosition = new Vector3(0, 0, 0);
+        _sfx.Play();
         _isUsing = false;
     }
 }
