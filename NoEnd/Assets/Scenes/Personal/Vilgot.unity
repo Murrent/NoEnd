@@ -496,7 +496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: _staticObjectPrefabs.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: '_staticObjectPrefabs.Array.data[0]'
@@ -505,19 +505,19 @@ PrefabInstance:
     - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: '_staticObjectPrefabs.Array.data[1]'
       value: 
-      objectReference: {fileID: 7572474315870470172, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
+      objectReference: {fileID: 102130046360206578, guid: 706d07b9b5850cc4cb9d2b2a80428b70, type: 3}
     - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: '_staticObjectPrefabs.Array.data[2]'
       value: 
-      objectReference: {fileID: 7572474315870470172, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
+      objectReference: {fileID: 3696772112440202658, guid: aa96cc42b4b10ca43ae1fc4ea2d580fb, type: 3}
     - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: '_staticObjectPrefabs.Array.data[3]'
       value: 
-      objectReference: {fileID: 2592916871245203452, guid: f89e85611f015dc4785e88b3d3f5f797, type: 3}
+      objectReference: {fileID: 3497733802777548103, guid: e72ea51277c07a24597ecb4b2341286e, type: 3}
     - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: '_staticObjectPrefabs.Array.data[4]'
       value: 
-      objectReference: {fileID: 2592916871245203452, guid: f89e85611f015dc4785e88b3d3f5f797, type: 3}
+      objectReference: {fileID: 3696772112440202658, guid: aa96cc42b4b10ca43ae1fc4ea2d580fb, type: 3}
     - target: {fileID: 7562005439220904974, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: '_staticObjectPrefabs.Array.data[5]'
       value: 
