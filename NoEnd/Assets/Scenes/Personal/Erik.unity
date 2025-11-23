@@ -791,8 +791,12 @@ PrefabInstance:
       value: Gnome Theif
       objectReference: {fileID: 0}
     - target: {fileID: 2378188061212032121, guid: 10168077bac391945893f759191a5c9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378188061212032121, guid: 10168077bac391945893f759191a5c9e, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6716744590094465451, guid: 10168077bac391945893f759191a5c9e, type: 3}
       propertyPath: m_IsActive
@@ -1379,7 +1383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2378188061212032121, guid: 10168077bac391945893f759191a5c9e, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6716744590094465451, guid: 10168077bac391945893f759191a5c9e, type: 3}
       propertyPath: m_IsActive
