@@ -19,7 +19,11 @@ public class King : MonoBehaviour
     float _carriageTravelDuration;
 
     [SerializeField]
+    Transform _flowerPrefab;
     Transform[] _flowers;
+
+    [SerializeField]
+    int _smellCount;
 
     [SerializeField]
     float _smellDuration;
@@ -38,6 +42,12 @@ public class King : MonoBehaviour
 
     IEnumerator DoSequence()
     {
+        _flowers = new Transform[_smellCount];
+        for (int i = 0; i < _smellCount; ++i)
+        {
+            
+        }
+
         yield return CarriageEntersScreen_Coroutine();
         _npcMovement.enabled = true;
         _meshParent.SetActive(true);
