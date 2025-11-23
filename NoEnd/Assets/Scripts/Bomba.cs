@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Interfaces;
 
 public class Bomba : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Bomba : MonoBehaviour
     public float fuseTimer = 3.0f;
     public float explosionRadius = 1.0f;
     public float explosionStart = 1.5f;
+    public int damage = 5;
     private bool _exploded = false;
     
     //vfx
@@ -63,14 +65,14 @@ public class Bomba : MonoBehaviour
 
     void Explosion(float radius)
     {
-        // Physics.OverlapSphereNonAlloc(Vector3.zero, 0.5f, new Collider[]);
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-        foreach (var colliders in hitColliders)
+        foreach (var collider in hitColliders)
         {
-            if (colliders.CompareTag("Player") || colliders.CompareTag("Enemy"))
+            IDamageable damageable = collider.GetComponent<IDamageable>();
+            if (damageable != null)
             {
-                Debug.Log("EXPLODED PLAYER");
-                //damage call
+                Debug.Log($"EXPLODED {collider.gameObject.name}");
+                damageable.TakeDamage(damage);
             }
         }
     }
