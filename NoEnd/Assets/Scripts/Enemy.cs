@@ -112,6 +112,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         // healthPoints -= damage;
         
+        Debug.Log($"{gameObject.name}: MI HIT CurrentHP: {healthPoints}");
         if ( ((healthPoints -= damage) <= 0) && !_isDead )
         {
             _isDead = true;
