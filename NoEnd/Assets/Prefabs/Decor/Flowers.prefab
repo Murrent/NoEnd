@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6433793778265041316, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     - target: {fileID: 7572474315870470172, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
       propertyPath: m_Name
       value: White Flower (2)
@@ -165,6 +169,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6762729131798829554, guid: f89e85611f015dc4785e88b3d3f5f797, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -223,6 +231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6433793778265041316, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     - target: {fileID: 7572474315870470172, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
       propertyPath: m_Name
       value: White Flower (5)
@@ -289,6 +301,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6433793778265041316, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     - target: {fileID: 7572474315870470172, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
       propertyPath: m_Name
       value: White Flower
@@ -363,6 +379,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6762729131798829554, guid: f89e85611f015dc4785e88b3d3f5f797, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -429,6 +449,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6762729131798829554, guid: f89e85611f015dc4785e88b3d3f5f797, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -487,6 +511,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6433793778265041316, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     - target: {fileID: 7572474315870470172, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
       propertyPath: m_Name
       value: White Flower (3)
@@ -561,6 +589,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6762729131798829554, guid: f89e85611f015dc4785e88b3d3f5f797, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -627,6 +659,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6762729131798829554, guid: f89e85611f015dc4785e88b3d3f5f797, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -693,6 +729,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6762729131798829554, guid: f89e85611f015dc4785e88b3d3f5f797, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -751,6 +791,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6433793778265041316, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     - target: {fileID: 7572474315870470172, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
       propertyPath: m_Name
       value: White Flower (1)
@@ -817,6 +861,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6433793778265041316, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9e227156b921b4a9b21dbeba796b29, type: 2}
     - target: {fileID: 7572474315870470172, guid: 950da9dc48d2b1442835c10917aabd3d, type: 3}
       propertyPath: m_Name
       value: White Flower (4)
