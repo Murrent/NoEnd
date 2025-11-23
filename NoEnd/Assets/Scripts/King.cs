@@ -3,9 +3,10 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Interfaces;
 using Random = UnityEngine.Random;
 
-public class King : MonoBehaviour
+public class King : MonoBehaviour, IDamageable
 {
     public static Action OnDayInitialize;
     public static Action<int> OnDayBegin;
@@ -65,6 +66,23 @@ public class King : MonoBehaviour
     Vector3 _carriageEndPosition;
 
     int _currentDay = 1;
+    private bool _isDead = false;
+    public bool dead
+    {
+        get { return _isDead; }
+    }
+    [SerializeField] int healthPoints = 6;
+    public void TakeDamage(int damage)
+    {
+        Debug.Log($"{gameObject.name}: MI HIT CurrentHP: {healthPoints}");
+        if ((healthPoints -= damage) <= 0 && !_isDead)
+        {
+            _isDead = true;
+            _currentDay = 1;
+
+            Debug.Log($"{gameObject.name}: PUSSYRASCLAAT mi DIED!!");
+        }
+    }
 
     private void Awake()
     {
@@ -106,6 +124,7 @@ public class King : MonoBehaviour
 
             _transitionLabel.text = $"Day {_currentDay}";
             ++_currentDay;
+            healthPoints = 6;
 
             _bannersAndBuisines.SetTrigger("banner");
 
@@ -124,11 +143,15 @@ public class King : MonoBehaviour
             _npcMovement.enabled = false;
             _meshParent.SetActive(false);
 
+
             yield return CarriageExitsScreen_Coroutine();
-
             yield return TransitionOut_Coroutine();
-
             OnDayEnd?.Invoke();
+
+            if(_isDead)
+            {
+                _isDead = false;
+            }
         }
     }
 
@@ -175,6 +198,10 @@ public class King : MonoBehaviour
         for (int i = 0; i < _flowers.Length; ++i)
         {
             yield return GoTo_Coroutine(_flowers[i].position);
+            if (_isDead)
+            {
+                yield break;
+            }
             yield return new WaitForSeconds(_smellDuration);
         }
     }
@@ -214,7 +241,14 @@ public class King : MonoBehaviour
     IEnumerator GoTo_Coroutine(Vector3 position)
     {
         _npcMovement.SetTargetPosition(position);
-        yield return new WaitUntil(() => { return _npcMovement.IsWithinMinTargetDistance(); });
+        yield return new WaitUntil(() => {
+            if (_isDead)
+            {
+                return true;
+            }
+            return _npcMovement.IsWithinMinTargetDistance();
+        
+        });
     }
 
 #if UNITY_EDITOR
