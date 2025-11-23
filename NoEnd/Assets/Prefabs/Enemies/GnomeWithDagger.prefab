@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8874670336788767888}
   m_Layer: 0
-  m_Name: GnomeWithSword
+  m_Name: GnomeWithDagger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1644804580915747876, guid: 437ed3d4f0c712b4fa68c2997b1dd05f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.001808
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1644804580915747876, guid: 437ed3d4f0c712b4fa68c2997b1dd05f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8885543896049759486, guid: b4cfb573838557149beafdd0065c88c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.503
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8885543896049759486, guid: b4cfb573838557149beafdd0065c88c9, type: 3}
       propertyPath: m_LocalPosition.z
