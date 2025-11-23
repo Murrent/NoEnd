@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
+
+using Random = UnityEngine.Random;
 
 public class King : MonoBehaviour
 {
@@ -19,8 +22,17 @@ public class King : MonoBehaviour
     float _carriageTravelDuration;
 
     [SerializeField]
+    Transform _flowerOrigin;
+
+    [SerializeField]
+    float _flowerMinSpawnRadius;
+
+    [SerializeField]
+    float _flowerMaxSpawnRadius;
+
+    [SerializeField]
     Transform _flowerPrefab;
-    Transform[] _flowers;
+    Transform[] _flowers = Array.Empty<Transform>();
 
     [SerializeField]
     int _smellCount;
@@ -45,7 +57,10 @@ public class King : MonoBehaviour
         _flowers = new Transform[_smellCount];
         for (int i = 0; i < _smellCount; ++i)
         {
-            
+            Vector3 offset = Random.onUnitSphere * (_flowerMinSpawnRadius + Random.Range(0.0f, _flowerMaxSpawnRadius - _flowerMinSpawnRadius));
+            offset.y = 0.0f;
+            Vector3 position = _flowerOrigin.position + offset;
+            _flowers[i] = Instantiate(_flowerPrefab, position, Quaternion.identity);
         }
 
         yield return CarriageEntersScreen_Coroutine();
@@ -102,6 +117,13 @@ public class King : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
+        if (_flowerOrigin)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(_flowerOrigin.position, _flowerMinSpawnRadius);
+            Gizmos.DrawWireSphere(_flowerOrigin.position, _flowerMaxSpawnRadius);
+        }
+
         if (_carriage)
         {
             Gizmos.color = Color.red;
@@ -115,7 +137,7 @@ public class King : MonoBehaviour
 
         for (int i = 0; i < _flowers.Length - 1; ++i)
         {    
-            Gizmos.DrawLine(_flowers[i].position, _flowers[i + 1].position);   
+            Gizmos.DrawLine(_flowers[i].position, _flowers[i + 1].position);
         }
 
         for (int i = 0; i < _flowers.Length; ++i)
