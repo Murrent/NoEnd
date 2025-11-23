@@ -386,10 +386,10 @@ MonoBehaviour:
   _damage: 5
   _enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 8192
   _playerLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 4096
 --- !u!1 &3760075848020030271
 GameObject:
   m_ObjectHideFlags: 0

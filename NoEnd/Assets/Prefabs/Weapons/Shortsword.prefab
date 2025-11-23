@@ -387,10 +387,10 @@ MonoBehaviour:
   _damage: 3
   _enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 8192
   _playerLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 4096
 --- !u!82 &3871224200971382834
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1065,7 +1065,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8384603076212253417, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 50789f77e7aeca64c8f515de9c33d036, type: 2}
     - target: {fileID: -7334951474422550414, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
@@ -1073,7 +1073,7 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -4570888915116111697, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 50789f77e7aeca64c8f515de9c33d036, type: 2}
     - target: {fileID: -3573306828519436704, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
@@ -1097,11 +1097,11 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8032750206264916975, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2bb014076b769a5438ad4fe52aa00ad2, type: 2}
     - target: {fileID: 8084854973141751649, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4f64ba8f1aabe6f4786771349a685eec, type: 2}
     m_RemovedComponents: []

@@ -109,10 +109,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layerMaskEnemy:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 8192
   _layerMaskPlayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 4096
   _tip: {fileID: 2795899896219133257}
   shotByPlayer: 0
 --- !u!114 &8678424954287135166
