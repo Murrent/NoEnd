@@ -329,9 +329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1953d75f959c40148af2f8c13f771b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnCooldown: 5
-  _spawnCount: 1
-  _enemiePrefabs:
+  _totalSpawnDuration: 30
+  _spawnDistance: 18
+  _enemyPrefabs:
   - {fileID: 5944319400061867522, guid: 437ed3d4f0c712b4fa68c2997b1dd05f, type: 3}
 --- !u!1 &1871852014
 GameObject:
@@ -504,7 +504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1700169808251597532, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1989455771580249106, guid: 78975c05cb110534094185a44e6bc14e, type: 3}
       propertyPath: m_IsActive

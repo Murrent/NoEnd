@@ -83,14 +83,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meshParent: {fileID: 4092805920848253758}
   _npcMovement: {fileID: 6523921981368304298}
+  _bannersAndBuisines: {fileID: 0}
+  _transitionTime: 0
+  _transitionImage: {fileID: 0}
+  _transitionLabel: {fileID: 0}
   _carriage: {fileID: 0}
   _carriageTravelDistance: 12
   _carriageTravelDuration: 4
-  _flowers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _flowerOrigin: {fileID: 0}
+  _flowerMinSpawnRadius: 0
+  _flowerMaxSpawnRadius: 0
+  _flowerPrefab: {fileID: 0}
+  _smellCount: 0
   _smellDuration: 7
 --- !u!114 &9030976127270710841
 MonoBehaviour:
@@ -156,7 +160,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8246498197151620533}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

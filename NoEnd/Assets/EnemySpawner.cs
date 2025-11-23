@@ -2,18 +2,24 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Random = UnityEngine.Random;
+
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    float _spawnCooldown;
+    float _totalSpawnDuration;
 
     [SerializeField]
-    int _spawnCount;
+    float _spawnDistance;
 
+    int _spawnCount = 0;
+    int _maxSpawnCount;
+
+    float _spawnCooldown;
     float _spawnTimer = 0.0f;
 
     [SerializeField]
-    GameObject[] _enemiePrefabs;
+    GameObject[] _enemyPrefabs;
 
     List<GameObject> _activeEnemies = new List<GameObject>();
 
@@ -36,13 +42,17 @@ public class EnemySpawner : MonoBehaviour
     private void EnableSpawning(int day)
     {
         _isSpawning = true;
+
+        _spawnCount = 0;
+        _maxSpawnCount = day * day;
+
+        _spawnTimer = 0.0f;
+        _spawnCooldown = _totalSpawnDuration / _maxSpawnCount;
     }
 
     private void DisableSpawning()
     {
         _isSpawning = false;
-
-        _spawnTimer = 0.0f;
     }
 
     private void DestroyAllActiveEnemies()
@@ -55,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (!_isSpawning)
+        if (!_isSpawning || _spawnCount >= _maxSpawnCount)
         {
             return;
         }
@@ -64,12 +74,15 @@ public class EnemySpawner : MonoBehaviour
         if (_spawnTimer <= 0.0f)
         {
             _spawnTimer = _spawnCooldown;
+            ++_spawnCount;
 
-            for (int i = 0; i < _spawnCount; ++i)
-            {
-                GameObject enemy = Instantiate(_enemiePrefabs[0], transform.position + Vector3.forward * 12.0f, Quaternion.identity);
-                _activeEnemies.Add(enemy);
-            }
+            Vector2 offsetXY = Random.insideUnitCircle.normalized * _spawnDistance;
+            Vector3 offset = new Vector3(offsetXY.x, 0.0f, offsetXY.y);
+
+            int randomEnemyIndex = Random.Range(0, _enemyPrefabs.Length);
+
+            GameObject enemy = Instantiate(_enemyPrefabs[randomEnemyIndex], transform.position + offset, Quaternion.identity);
+            _activeEnemies.Add(enemy);
         }
     }
 }
