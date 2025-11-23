@@ -4,7 +4,7 @@ public class RotateY : MonoBehaviour
 {
     [SerializeField]
     public GameObject objectToSpawn;
-    //insert object to spawn (bomb or sword)
+    //insert object to spawn (f.ex bomb)
     [SerializeField]
     public bool spinInOppositeDirection = false;
     private float _spinSpeed = 100.0f;

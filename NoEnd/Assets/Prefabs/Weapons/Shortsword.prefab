@@ -382,6 +382,8 @@ MonoBehaviour:
   _end: {fileID: 4745425531063289707}
   _configurableJoint: {fileID: 3876322824795084636}
   _impactEventSignaler: {fileID: 3828258811960719382}
+  _impactType: 0
+  _damage: 3
 --- !u!1 &3760075848020030271
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f96ea95452c9e240b0092639845151a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _threshold: 0.01
+  _threshold: 20
 --- !u!1 &4277788438495614401
 GameObject:
   m_ObjectHideFlags: 0

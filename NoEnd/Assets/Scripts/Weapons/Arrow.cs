@@ -1,3 +1,4 @@
+using Interfaces;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
@@ -24,6 +25,12 @@ public class Arrow : MonoBehaviour
             {
                 impactSpawner.SpawnImpact(hit.point, hit.normal, ImpactLibrary.ImpactType.Blood);
             }
+
+            if (hit.transform.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.TakeDamage(2);
+            }
+
             Destroy(_rb);
             Destroy(this);
             return;
