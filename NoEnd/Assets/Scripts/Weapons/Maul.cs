@@ -1,3 +1,4 @@
+using Interfaces;
 using UnityEngine;
 
 public class Maul : Weapon
@@ -7,6 +8,7 @@ public class Maul : Weapon
     [SerializeField] private ConfigurableJoint _configurableJoint;
     [SerializeField] private ImpactEventSignaler _impactEventSignaler;
     [SerializeField] private ImpactLibrary.ImpactType _impactType;
+    [SerializeField] private float _damage = 1;
 
     private void Start()
     {
@@ -57,6 +59,12 @@ public class Maul : Weapon
         if (collision.gameObject.TryGetComponent(out ImpactSpawner impactSpawner))
         {
             impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal, _impactType);
+        }
+        
+        if (collision.gameObject.TryGetComponent(out IDamageable damageable))
+        {
+            int damage = Mathf.CeilToInt(collision.impulse.magnitude * _damage * 0.01f);
+            damageable.TakeDamage(damage);
         }
     }
 }
