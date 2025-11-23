@@ -646,12 +646,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 728204114637782024, guid: a482728a6c6ab54499234b664e522f82, type: 3}
     - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
+      propertyPath: _smellDuration
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
       propertyPath: _flowerSpawnRadius
       value: 4.85
       objectReference: {fileID: 0}
     - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
       propertyPath: _flowerMaxSpawnRadius
-      value: 5.8
+      value: 6.29
       objectReference: {fileID: 0}
     - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
       propertyPath: _flowerMinSpawnRadius

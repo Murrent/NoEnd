@@ -35,9 +35,13 @@ public class NPCMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_animationPivot && _rigidbody.linearVelocity.magnitude > 0.2f)
+        if (_animationPivot && _rigidbody.linearVelocity.magnitude > 0.05f)
         {
             _animationPivot.forward = _rigidbody.linearVelocity.normalized;
+        }
+        else
+        {
+            _animationPivot.forward = Vector3.forward;
         }
 
         _rigidbody.linearVelocity *= 1.0f - _deceleration;

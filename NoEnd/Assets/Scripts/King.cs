@@ -6,6 +6,9 @@ using Random = UnityEngine.Random;
 
 public class King : MonoBehaviour
 {
+    public static Action OnDayBegin;
+    public static Action OnDayEnd;
+
     [SerializeField]
     GameObject _meshParent;
 
@@ -41,10 +44,14 @@ public class King : MonoBehaviour
     float _smellDuration;
 
     Vector3 _carriageRestPosition;
+    Vector3 _carriageStartPosition;
+    Vector3 _carriageEndPosition;
 
     private void Awake()
     {
         _carriageRestPosition = _carriage.position;
+        _carriageStartPosition = _carriage.position + Vector3.back * _carriageTravelDistance;
+        _carriageEndPosition = _carriage.position + Vector3.forward * _carriageTravelDistance;
 
         _npcMovement.enabled = false;
         _meshParent.SetActive(false);
@@ -55,22 +62,42 @@ public class King : MonoBehaviour
     IEnumerator DoSequence()
     {
         _flowers = new Transform[_smellCount];
-        for (int i = 0; i < _smellCount; ++i)
-        {
-            Vector3 offset = Random.onUnitSphere * (_flowerMinSpawnRadius + Random.Range(0.0f, _flowerMaxSpawnRadius - _flowerMinSpawnRadius));
-            offset.y = 0.0f;
-            Vector3 position = _flowerOrigin.position + offset;
-            _flowers[i] = Instantiate(_flowerPrefab, position, Quaternion.identity);
-        }
 
-        yield return CarriageEntersScreen_Coroutine();
-        _npcMovement.enabled = true;
-        _meshParent.SetActive(true);
-        yield return SmellFlowers_Coroutine();
-        yield return GoTo_Coroutine(_carriage.position);
-        _npcMovement.enabled = false;
-        _meshParent.SetActive(false);
-        yield return CarriageExitsScreen_Coroutine();
+        while (true)
+        {
+            for (int i = 0; i < _smellCount; ++i)
+            {
+                Vector2 offsetXY = Random.insideUnitCircle.normalized * (_flowerMinSpawnRadius + Random.Range(0.0f, _flowerMaxSpawnRadius - _flowerMinSpawnRadius));
+                Vector3 offset = new Vector3(offsetXY.x, 0.0f, offsetXY.y);
+                Vector3 position = _flowerOrigin.position + offset;
+
+                if (_flowers[i])
+                {
+                    Destroy(_flowers[i].gameObject);
+                }
+
+                _flowers[i] = Instantiate(_flowerPrefab, position, Quaternion.identity);
+            }
+
+            yield return CarriageEntersScreen_Coroutine();
+
+            transform.position = _carriage.position - Vector3.up * _carriage.position.y;
+
+            _npcMovement.enabled = true;
+            _meshParent.SetActive(true);
+
+            OnDayBegin?.Invoke();
+
+            yield return SmellFlowers_Coroutine();
+            yield return GoTo_Coroutine(_carriage.position);
+
+            _npcMovement.enabled = false;
+            _meshParent.SetActive(false);
+
+            OnDayEnd?.Invoke();
+
+            yield return CarriageExitsScreen_Coroutine();
+        }
     }
 
     IEnumerator SmellFlowers_Coroutine()
@@ -84,10 +111,9 @@ public class King : MonoBehaviour
 
     IEnumerator CarriageEntersScreen_Coroutine()
     {
-        Vector3 carriageStartPosition = _carriage.position + Vector3.back * _carriageTravelDistance;
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _carriageTravelDuration)
         {
-            _carriage.position = Vector3.Lerp(carriageStartPosition, _carriageRestPosition, 1.0f - Mathf.Pow(1.0f - t, 4.0f));
+            _carriage.position = Vector3.Lerp(_carriageStartPosition, _carriageRestPosition, 1.0f - Mathf.Pow(1.0f - t, 4.0f));
 
             yield return new WaitForEndOfFrame();
         }
@@ -97,15 +123,14 @@ public class King : MonoBehaviour
 
     IEnumerator CarriageExitsScreen_Coroutine()
     {
-        Vector3 carriageEndPosition = _carriage.position + Vector3.forward * _carriageTravelDistance;
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _carriageTravelDuration)
         {
-            _carriage.position = Vector3.Lerp(_carriageRestPosition, carriageEndPosition, Mathf.Pow(t, 4.0f));
+            _carriage.position = Vector3.Lerp(_carriageRestPosition, _carriageEndPosition, Mathf.Pow(t, 4.0f));
 
             yield return new WaitForEndOfFrame();
         }
 
-        _carriage.position = carriageEndPosition;
+        _carriage.position = _carriageEndPosition;
     }
 
     IEnumerator GoTo_Coroutine(Vector3 position)
