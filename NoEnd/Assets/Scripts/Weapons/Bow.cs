@@ -20,10 +20,12 @@ public class Bow : Weapon
     private Vector3 _lastPosition;
     private bool _isEquipped = false;
     private bool _isEquippedByPlayer = false;
+    private AudioSource _sfx;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _sfx = GetComponent<AudioSource>();
         _lastPosition = transform.position;
         
         if (_isEquipped) return;
@@ -101,6 +103,7 @@ public class Bow : Weapon
         obj.GetComponent<Arrow>().shotByPlayer = _isEquippedByPlayer;
         _bowMeshRenderer.SetBlendShapeWeight(0, 0);
         _displayArrow.localPosition = new Vector3(0, 0, 0);
+        _sfx.Play();
         _isUsing = false;
     }
 }

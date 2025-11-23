@@ -12,10 +12,13 @@ public class Maul : Weapon
     [SerializeField] private LayerMask _enemyLayers;
     [SerializeField] private LayerMask _playerLayers;
     private bool _isEquipped = false;
+    
+    AudioSource _audioSource;
 
     private void Start()
     {
         transform.position = new Vector3(transform.position.x, Player.HoldPosY, transform.position.z);
+        _audioSource = GetComponent<AudioSource>();
         if (_isEquipped) return;
         Unequip();
     }
@@ -73,11 +76,19 @@ public class Maul : Weapon
         {
             impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal, _impactType);
         }
-
+        
         if (collision.gameObject.TryGetComponent(out IDamageable damageable))
         {
             int damage = Mathf.CeilToInt(collision.impulse.magnitude * _damage * 0.01f);
             damageable.TakeDamage(damage);
+            _audioSource.Play();
+            if(damageable.dead)
+            {
+                if (collision.gameObject.TryGetComponent(out ImpactSpawner aImpactSpawner))
+                {
+                    impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal, ImpactLibrary.ImpactType.BloodBig);
+                }
+            }
         }
     }
 }

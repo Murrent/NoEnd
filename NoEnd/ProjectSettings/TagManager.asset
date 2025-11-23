@@ -16,6 +16,8 @@ TagManager:
   - Enemy
   - Player
   - Particle
+  - WorldBounds
+  - Weapon
   - PlayerWeapon
   - EnemyWeapon
   - 

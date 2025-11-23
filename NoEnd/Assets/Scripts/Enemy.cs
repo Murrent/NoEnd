@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour, IDamageable
     //Health
     [SerializeField] int healthPoints = 6;
     private bool _isDead = false;
+    public bool dead
+    {
+        get {  return _isDead; }
+    }
 
     [SerializeField]
     NPCMovement _npcMovement;

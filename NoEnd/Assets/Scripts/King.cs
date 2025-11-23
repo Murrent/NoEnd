@@ -68,8 +68,8 @@ public class King : MonoBehaviour
     private void Awake()
     {
         _carriageRestPosition = _carriage.position;
-        _carriageStartPosition = _carriage.position + Vector3.back * _carriageTravelDistance;
-        _carriageEndPosition = _carriage.position + Vector3.forward * _carriageTravelDistance;
+        _carriageStartPosition = _carriage.position - _carriage.transform.forward * _carriageTravelDistance;
+        _carriageEndPosition = _carriage.position + _carriage.transform.forward * _carriageTravelDistance;
 
         _carriage.transform.position = _carriageStartPosition;
 
@@ -108,7 +108,7 @@ public class King : MonoBehaviour
 
             yield return CarriageEntersScreen_Coroutine();
 
-            transform.position = _carriage.position - Vector3.up * _carriage.position.y;
+            transform.position = _carriage.position - Vector3.up * (_carriage.position.y - 0.05f)  - _carriage.transform.right * 2.0f;
 
             _npcMovement.enabled = true;
             _meshParent.SetActive(true);
@@ -131,24 +131,40 @@ public class King : MonoBehaviour
 
     IEnumerator TransitionIn_Coroutine()
     {
-        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _transitionTime / 2.0f)
+        yield return new WaitForSeconds(0.5f);
+
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / (_transitionTime - 0.5f) / 2.0f)
         {
             Color color = _transitionImage.color;
             color.a = 1.0f - t;
             _transitionImage.color = color;
             yield return new WaitForEndOfFrame();
         }
+
+        {
+            Color color = _transitionImage.color;
+            color.a = 0.0f;
+            _transitionImage.color = color;
+        }
     }
 
     IEnumerator TransitionOut_Coroutine()
     {
-        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _transitionTime / 2.0f)
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / (_transitionTime - 0.5f) / 2.0f)
         {
             Color color = _transitionImage.color;
             color.a = t;
             _transitionImage.color = color;
             yield return new WaitForEndOfFrame();
         }
+
+        {
+            Color color = _transitionImage.color;
+            color.a = 1.0f;
+            _transitionImage.color = color;
+        }
+
+        yield return new WaitForSeconds(0.5f);
     }
 
     IEnumerator SmellFlowers_Coroutine()
@@ -203,10 +219,10 @@ public class King : MonoBehaviour
         if (_carriage)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawRay(_carriage.position, Vector3.forward * _carriageTravelDistance);
-            Gizmos.DrawRay(_carriage.position, Vector3.back * _carriageTravelDistance);
-            Gizmos.DrawSphere(_carriage.position + Vector3.forward * _carriageTravelDistance, 0.5f);
-            Gizmos.DrawSphere(_carriage.position + Vector3.back * _carriageTravelDistance, 0.5f);
+            Gizmos.DrawRay(_carriage.position, _carriage.transform.forward * _carriageTravelDistance);
+            Gizmos.DrawRay(_carriage.position, -_carriage.transform.forward * _carriageTravelDistance);
+            Gizmos.DrawSphere(_carriage.position + _carriage.transform.forward * _carriageTravelDistance, 0.5f);
+            Gizmos.DrawSphere(_carriage.position - _carriage.transform.forward * _carriageTravelDistance, 0.5f);
         }
 
         Gizmos.color = Color.magenta;
