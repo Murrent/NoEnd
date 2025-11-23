@@ -17,14 +17,32 @@ public class EnemySpawner : MonoBehaviour
 
     List<GameObject> _activeEnemies = new List<GameObject>();
 
+    bool _isSpawning = false;
+
     private void OnEnable()
     {
+        King.OnDayBegin += EnableSpawning;
+        King.OnDayEnd += DisableSpawning;
         King.OnDayEnd += DestroyAllActiveEnemies;
     }
 
     private void OnDisable()
     {
+        King.OnDayBegin -= EnableSpawning;
+        King.OnDayEnd -= DisableSpawning;
         King.OnDayEnd -= DestroyAllActiveEnemies;
+    }
+
+    private void EnableSpawning(int day)
+    {
+        _isSpawning = true;
+    }
+
+    private void DisableSpawning()
+    {
+        _isSpawning = false;
+
+        _spawnTimer = 0.0f;
     }
 
     private void DestroyAllActiveEnemies()
@@ -37,6 +55,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        if (!_isSpawning)
+        {
+            return;
+        }
+
         _spawnTimer -= Time.deltaTime;
         if (_spawnTimer <= 0.0f)
         {
