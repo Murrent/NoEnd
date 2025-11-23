@@ -9,11 +9,14 @@ public class Maul : Weapon
     [SerializeField] private ImpactEventSignaler _impactEventSignaler;
     [SerializeField] private ImpactLibrary.ImpactType _impactType;
     [SerializeField] private float _damage = 1;
+    
+    AudioSource _audioSource;
 
     private void Start()
     {
         transform.position = new Vector3(transform.position.x, Player.HoldPosY, transform.position.z);
         Unequip();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -61,10 +64,12 @@ public class Maul : Weapon
             impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal, _impactType);
         }
         
+        
         if (collision.gameObject.TryGetComponent(out IDamageable damageable))
         {
             int damage = Mathf.CeilToInt(collision.impulse.magnitude * _damage * 0.01f);
             damageable.TakeDamage(damage);
+            _audioSource.Play();
         }
     }
 }
