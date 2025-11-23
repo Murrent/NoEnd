@@ -6,6 +6,7 @@ public class Maul : Weapon
     [SerializeField] private Rigidbody _end;
     [SerializeField] private ConfigurableJoint _configurableJoint;
     [SerializeField] private ImpactEventSignaler _impactEventSignaler;
+    [SerializeField] private ImpactLibrary.ImpactType _impactType;
 
     private void Start()
     {
@@ -55,7 +56,7 @@ public class Maul : Weapon
     {
         if (collision.gameObject.TryGetComponent(out ImpactSpawner impactSpawner))
         {
-            impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal);
+            impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal, _impactType);
         }
     }
 }

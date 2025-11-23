@@ -50,6 +50,7 @@ MonoBehaviour:
   _end: {fileID: 7174520938024563009}
   _configurableJoint: {fileID: 309070971158885886}
   _impactEventSignaler: {fileID: 3816147360978107557}
+  _impactType: 2
 --- !u!1 &3579629193840786450
 GameObject:
   m_ObjectHideFlags: 0
