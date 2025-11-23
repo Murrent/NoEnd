@@ -131,24 +131,40 @@ public class King : MonoBehaviour
 
     IEnumerator TransitionIn_Coroutine()
     {
-        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _transitionTime / 2.0f)
+        yield return new WaitForSeconds(0.5f);
+
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / (_transitionTime - 0.5f) / 2.0f)
         {
             Color color = _transitionImage.color;
             color.a = 1.0f - t;
             _transitionImage.color = color;
             yield return new WaitForEndOfFrame();
         }
+
+        {
+            Color color = _transitionImage.color;
+            color.a = 0.0f;
+            _transitionImage.color = color;
+        }
     }
 
     IEnumerator TransitionOut_Coroutine()
     {
-        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / _transitionTime / 2.0f)
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / (_transitionTime - 0.5f) / 2.0f)
         {
             Color color = _transitionImage.color;
             color.a = t;
             _transitionImage.color = color;
             yield return new WaitForEndOfFrame();
         }
+
+        {
+            Color color = _transitionImage.color;
+            color.a = 1.0f;
+            _transitionImage.color = color;
+        }
+
+        yield return new WaitForSeconds(0.5f);
     }
 
     IEnumerator SmellFlowers_Coroutine()
