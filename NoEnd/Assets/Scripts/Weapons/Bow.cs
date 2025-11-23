@@ -18,10 +18,12 @@ public class Bow : Weapon
     private float _bowStrength;
     private Rigidbody _rb;
     private Vector3 _lastPosition;
+    private AudioSource _sfx;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _sfx = GetComponent<AudioSource>();
         _lastPosition = transform.position;
         Unequip();
     }
@@ -87,6 +89,7 @@ public class Bow : Weapon
         obj.GetComponent<Rigidbody>().linearVelocity = _arrowSpawnPoint.forward * _arrowSpeed * _bowStrength;
         _bowMeshRenderer.SetBlendShapeWeight(0, 0);
         _displayArrow.localPosition = new Vector3(0, 0, 0);
+        _sfx.Play();
         _isUsing = false;
     }
 }
