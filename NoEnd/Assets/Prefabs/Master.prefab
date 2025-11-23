@@ -674,6 +674,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
+--- !u!95 &1277147418894825273 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3826721817552669380, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
+  m_PrefabInstance: {fileID: 2639788846681603581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6530615544553624978 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9080103219224242287, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
@@ -684,6 +689,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8879846811536319898, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
   m_PrefabInstance: {fileID: 2639788846681603581}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8111434650070017330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6067460505118267599, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
+  m_PrefabInstance: {fileID: 2639788846681603581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4754974072735736103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -737,9 +753,17 @@ PrefabInstance:
       value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
+      propertyPath: _carriage
+      value: 
+      objectReference: {fileID: 3746523655515091340}
+    - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
       propertyPath: _smellCount
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
+      propertyPath: _flowerOrigin
+      value: 
+      objectReference: {fileID: 8260730402226956334}
     - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
       propertyPath: _flowerPrefab
       value: 
@@ -757,9 +781,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7667309275058734975}
     - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
+      propertyPath: _transitionLabel
+      value: 
+      objectReference: {fileID: 8111434650070017330}
+    - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
       propertyPath: _flowerSpawnRadius
       value: 4.85
       objectReference: {fileID: 0}
+    - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
+      propertyPath: _bannersAndBuisines
+      value: 
+      objectReference: {fileID: 1277147418894825273}
     - target: {fileID: 6553077647165454648, guid: 929224644ce7b5d448ef584ef6125ad9, type: 3}
       propertyPath: _flowerMaxSpawnRadius
       value: 6
@@ -938,5 +970,10 @@ PrefabInstance:
 --- !u!4 &1420193673851780367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8748814806633995463, guid: f0a1899891f49bb4ebfa233433997589, type: 3}
+  m_PrefabInstance: {fileID: 7701017002867548616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3746523655515091340 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6422644632466411588, guid: f0a1899891f49bb4ebfa233433997589, type: 3}
   m_PrefabInstance: {fileID: 7701017002867548616}
   m_PrefabAsset: {fileID: 0}

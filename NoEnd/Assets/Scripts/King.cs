@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class King : MonoBehaviour
 {
-    public static Action OnDayBegin;
+    public static Action<int> OnDayBegin;
     public static Action OnDayEnd;
 
     [SerializeField]
@@ -24,6 +25,9 @@ public class King : MonoBehaviour
 
     [SerializeField]
     RawImage _transitionImage;
+
+    [SerializeField]
+    TMP_Text _transitionLabel;
 
     [Header("Carriage")]
     [SerializeField]
@@ -58,6 +62,8 @@ public class King : MonoBehaviour
     Vector3 _carriageRestPosition;
     Vector3 _carriageStartPosition;
     Vector3 _carriageEndPosition;
+
+    int _currentDay = 1;
 
     private void Awake()
     {
@@ -95,6 +101,9 @@ public class King : MonoBehaviour
 
             yield return TransitionIn_Coroutine();
 
+            _transitionLabel.text = $"Day {_currentDay}";
+            ++_currentDay;
+
             _bannersAndBuisines.SetTrigger("banner");
 
             yield return CarriageEntersScreen_Coroutine();
@@ -104,7 +113,7 @@ public class King : MonoBehaviour
             _npcMovement.enabled = true;
             _meshParent.SetActive(true);
 
-            OnDayBegin?.Invoke();
+            OnDayBegin?.Invoke(_currentDay);
 
             yield return SmellFlowers_Coroutine();
             yield return GoTo_Coroutine(_carriage.position);
@@ -112,11 +121,11 @@ public class King : MonoBehaviour
             _npcMovement.enabled = false;
             _meshParent.SetActive(false);
 
-            OnDayEnd?.Invoke();
-
             yield return CarriageExitsScreen_Coroutine();
 
             yield return TransitionOut_Coroutine();
+
+            OnDayEnd?.Invoke();
         }
     }
 
