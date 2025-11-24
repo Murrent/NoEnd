@@ -30,14 +30,14 @@ public class Player : MonoBehaviour
     {
         if (_mousePress is not null)
         {
-            _mousePress.performed += OnPress;
-            _mousePress.canceled += OnReleased;
+            _mousePress.performed += OnPressRight;
+            _mousePress.canceled += OnReleasedRight;
         }
 
         if (_mousePressRight is not null)
         {
-            _mousePressRight.performed += OnPressRight;
-            _mousePressRight.canceled += OnReleasedRight;
+            _mousePressRight.performed += OnPress;
+            _mousePressRight.canceled += OnReleased;
         }
     }
 
@@ -45,14 +45,14 @@ public class Player : MonoBehaviour
     {
         if (_mousePress is not null)
         {
-            _mousePress.performed -= OnPress;
-            _mousePress.canceled -= OnReleased;
+            _mousePress.performed -= OnPressRight;
+            _mousePress.canceled -= OnReleasedRight;
         }
 
         if (_mousePressRight is not null)
         {
-            _mousePressRight.performed -= OnPressRight;
-            _mousePressRight.canceled -= OnReleasedRight;
+            _mousePressRight.performed -= OnPress;
+            _mousePressRight.canceled -= OnReleased;
         }
     }
 
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
             _mousePress = _mousePressReference.ToInputAction();
             _mousePress.Enable();
 
-            _mousePress.performed += OnPress;
+            _mousePress.performed += OnPressRight;
         }
         else
         {
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
             _mousePressRight = _mousePressRightReference.ToInputAction();
             _mousePressRight.Enable();
 
-            _mousePressRight.performed += OnPressRight;
+            _mousePressRight.performed += OnPress;
         }
         else
         {
