@@ -64,6 +64,8 @@ public class King : MonoBehaviour, IDamageable
     Vector3 _carriageRestPosition;
     Vector3 _carriageStartPosition;
     Vector3 _carriageEndPosition;
+    
+    private AudioSource _sfx;
 
     int _currentDay = 1;
     private bool _isDead = false;
@@ -75,6 +77,7 @@ public class King : MonoBehaviour, IDamageable
     const int maxHealthPoint = 6;
     public void TakeDamage(int damage)
     {
+        _sfx.Play();
         Debug.Log($"{gameObject.name}: MI HIT CurrentHP: {healthPoints}");
         if ((healthPoints -= damage) <= 0 && !_isDead)
         {
@@ -87,6 +90,7 @@ public class King : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        _sfx = GetComponent<AudioSource>();
         _carriageRestPosition = _carriage.position;
         _carriageStartPosition = _carriage.position - _carriage.transform.forward * _carriageTravelDistance;
         _carriageEndPosition = _carriage.position + _carriage.transform.forward * _carriageTravelDistance;
