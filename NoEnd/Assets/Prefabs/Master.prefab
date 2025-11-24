@@ -1120,6 +1120,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.182
       objectReference: {fileID: 0}
+    - target: {fileID: 7888804021386426950, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d8f23423b9a14844ad130f2781a279c, type: 3}
     - target: {fileID: 8427198796441667515, guid: 8342ad53a57163746997d32aa7da583e, type: 3}
       propertyPath: m_TargetTexture
       value: 
