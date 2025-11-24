@@ -50,8 +50,8 @@ public class Maul : Weapon
             _impactEventSignaler._threshold = _defaultImpactEventThreshold;
             _configurableJoint.slerpDrive = new JointDrive()
             {
-                positionSpring = 0, 
-                positionDamper = _defaultSlerpDrive, 
+                positionSpring = 0,
+                positionDamper = _defaultSlerpDrive,
                 maximumForce = float.MaxValue,
                 useAcceleration = false
             };
@@ -61,8 +61,8 @@ public class Maul : Weapon
             _impactEventSignaler._threshold = 0;
             _configurableJoint.slerpDrive = new JointDrive()
             {
-                positionSpring = 0, 
-                positionDamper = 5, 
+                positionSpring = 0,
+                positionDamper = 2,
                 maximumForce = float.MaxValue,
                 useAcceleration = false
             };
@@ -88,8 +88,8 @@ public class Maul : Weapon
         _impactEventSignaler._threshold = _defaultImpactEventThreshold;
         _configurableJoint.slerpDrive = new JointDrive()
         {
-            positionSpring = 0, 
-            positionDamper = _defaultSlerpDrive, 
+            positionSpring = 0,
+            positionDamper = _defaultSlerpDrive,
             maximumForce = float.MaxValue,
             useAcceleration = false
         };
