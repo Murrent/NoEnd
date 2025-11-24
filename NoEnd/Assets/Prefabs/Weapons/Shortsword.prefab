@@ -602,7 +602,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 4
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!114 &3828258811960719382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,7 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 50789f77e7aeca64c8f515de9c33d036, type: 2}
     - target: {fileID: -7334951474422550414, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4570888915116111697, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1091,7 +1091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2766212503428324877, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8032750206264916975, guid: 5437a8cbedb54ac4590cfa84f53b27b7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
