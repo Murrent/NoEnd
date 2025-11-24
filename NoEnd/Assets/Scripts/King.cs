@@ -72,6 +72,7 @@ public class King : MonoBehaviour, IDamageable
         get { return _isDead; }
     }
     [SerializeField] int healthPoints = 6;
+    const int maxHealthPoint = 6;
     public void TakeDamage(int damage)
     {
         Debug.Log($"{gameObject.name}: MI HIT CurrentHP: {healthPoints}");
@@ -124,7 +125,7 @@ public class King : MonoBehaviour, IDamageable
 
             _transitionLabel.text = $"Day {_currentDay}";
             ++_currentDay;
-            healthPoints = 6;
+            healthPoints = maxHealthPoint;
 
             _bannersAndBuisines.SetTrigger("banner");
 

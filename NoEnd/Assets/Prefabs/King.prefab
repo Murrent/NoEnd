@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6523921981368304298}
   - component: {fileID: 5737422751969322356}
   - component: {fileID: 6268403007176263797}
+  - component: {fileID: 5696147549003136349}
   m_Layer: 8
   m_Name: King
   m_TagString: Untagged
@@ -96,6 +97,7 @@ MonoBehaviour:
   _flowerPrefab: {fileID: 0}
   _smellCount: 0
   _smellDuration: 5
+  healthPoints: 6
 --- !u!114 &9030976127270710841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +204,20 @@ CapsuleCollider:
   m_Height: 1.2038702
   m_Direction: 1
   m_Center: {x: 0, y: 0.5977103, z: 0}
+--- !u!114 &5696147549003136349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246498197151620533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 892a9709ac6c9ec41b2099aa27d90258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _impact: {fileID: 11400000, guid: 70188281a3c21434f86bd5cb6878914d, type: 2}
+  _useThisAsParent: 0
 --- !u!1001 &3750927417909948015
 PrefabInstance:
   m_ObjectHideFlags: 0
