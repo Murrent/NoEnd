@@ -11,6 +11,7 @@ public class EnemyWeaponController : MonoBehaviour
 
     [SerializeField] private Weapon _weapon;
     [SerializeField] private Transform _weaponHolder;
+    [SerializeField] private Transform _weaponHolderBow;
     [SerializeField] private Animator _animator;
     private bool _isAttacking = false;
     private float _bowForce = 0.0f;
@@ -37,7 +38,15 @@ public class EnemyWeaponController : MonoBehaviour
     {
         if (_weapon)
         {
-            _weapon.MoveWeapon(_weaponHolder.position);
+            if (_weaponType == WeaponType.Bow)
+            {
+                _weapon.MoveWeapon(_weaponHolderBow.position);
+            }
+            else
+            {
+                _weapon.MoveWeapon(_weaponHolder.position);
+            }
+
             _weapon.SetDirection(transform.forward);
             if (_isAttacking)
             {
