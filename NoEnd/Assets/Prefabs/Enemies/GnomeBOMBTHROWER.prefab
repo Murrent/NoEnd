@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapon: {fileID: 0}
   _weaponHolder: {fileID: 8110337518217648202}
+  _weaponHolderBow: {fileID: 0}
   _animator: {fileID: 1566906962263751446}
 --- !u!1 &479031731226892344
 GameObject:
@@ -352,8 +353,8 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 6418180475301049370, guid: 95a639ba5b44af842be7c9e85a8d92eb, type: 2}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.117
+  m_Pitch: 1.5
   Loop: 1
   Mute: 0
   Spatialize: 0
