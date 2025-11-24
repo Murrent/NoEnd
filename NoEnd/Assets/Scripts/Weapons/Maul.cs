@@ -13,11 +13,15 @@ public class Maul : Weapon
     private int _enemyLayers = 13;
     private int _playerLayers = 12;
     private bool _isEquipped = false;
-    
+    private float _defaultImpactEventThreshold;
+    private float _defaultSlerpDrive;
+
     AudioSource _audioSource;
 
     private void Start()
     {
+        _defaultImpactEventThreshold = _impactEventSignaler._threshold;
+        _defaultSlerpDrive = _configurableJoint.slerpDrive.positionDamper;
         transform.position = new Vector3(transform.position.x, Player.HoldPosY, transform.position.z);
         _audioSource = GetComponent<AudioSource>();
         if (_isEquipped) return;
@@ -41,12 +45,36 @@ public class Maul : Weapon
 
     public override void Equip(bool isPlayer)
     {
+        if (isPlayer)
+        {
+            _impactEventSignaler._threshold = _defaultImpactEventThreshold;
+            _configurableJoint.slerpDrive = new JointDrive()
+            {
+                positionSpring = 0, 
+                positionDamper = _defaultSlerpDrive, 
+                maximumForce = float.MaxValue,
+                useAcceleration = false
+            };
+        }
+        else
+        {
+            _impactEventSignaler._threshold = 0;
+            _configurableJoint.slerpDrive = new JointDrive()
+            {
+                positionSpring = 0, 
+                positionDamper = 5, 
+                maximumForce = float.MaxValue,
+                useAcceleration = false
+            };
+        }
+
         int layer = isPlayer ? _playerLayers : _enemyLayers;
         _end.gameObject.layer = layer;
         foreach (var attackCollider in _attackColliders)
         {
             attackCollider.gameObject.layer = layer;
         }
+
         Vector3 localPos = _end.transform.localPosition;
         _end.transform.localPosition = new Vector3(localPos.x, 0.0f, localPos.z);
         _end.transform.rotation = Quaternion.identity;
@@ -57,11 +85,20 @@ public class Maul : Weapon
 
     public override void Unequip()
     {
+        _impactEventSignaler._threshold = _defaultImpactEventThreshold;
+        _configurableJoint.slerpDrive = new JointDrive()
+        {
+            positionSpring = 0, 
+            positionDamper = _defaultSlerpDrive, 
+            maximumForce = float.MaxValue,
+            useAcceleration = false
+        };
         _end.gameObject.layer = _playerLayers;
         foreach (var attackCollider in _attackColliders)
         {
             attackCollider.gameObject.layer = _playerLayers;
         }
+
         _end.constraints = RigidbodyConstraints.None;
         _configurableJoint.connectedBody = null;
         _isEquipped = false;
@@ -82,12 +119,10 @@ public class Maul : Weapon
 
     public override void SetForce(Vector3 force)
     {
-        
     }
 
     public override void SetDirection(Vector3 direction)
     {
-        
     }
 
     private void OnImpact(Collision collision)
@@ -96,17 +131,18 @@ public class Maul : Weapon
         {
             impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal, _impactType);
         }
-        
+
         if (collision.gameObject.TryGetComponent(out IDamageable damageable))
         {
             int damage = Mathf.CeilToInt(collision.impulse.magnitude * _damage * 0.01f);
             damageable.TakeDamage(damage);
             _audioSource.Play();
-            if(damageable.dead)
+            if (damageable.dead)
             {
                 if (collision.gameObject.TryGetComponent(out ImpactSpawner aImpactSpawner))
                 {
-                    impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal, ImpactLibrary.ImpactType.BloodBig);
+                    impactSpawner.SpawnImpact(collision.contacts[0].point, collision.contacts[0].normal,
+                        ImpactLibrary.ImpactType.BloodBig);
                 }
             }
         }
