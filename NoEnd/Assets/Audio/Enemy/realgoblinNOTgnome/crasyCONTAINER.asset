@@ -10,6 +10,16 @@ AudioContainerElement:
   m_AudioClip: {fileID: 8300000, guid: 5acdf35f0592da846a9b003eec974f18, type: 3}
   m_Volume: 0
   m_Enabled: 1
+--- !u!1233149941 &561106452059760680
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: goblinscream_{561106452059760680}
+  m_AudioClip: {fileID: 8300000, guid: 63987cfa80b1eba4a94e12486e7797a1, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
 --- !u!1307931743 &6418180475301049370
 AudioRandomContainer:
   m_ObjectHideFlags: 0
@@ -19,23 +29,24 @@ AudioRandomContainer:
   m_Name: crasyCONTAINER
   m_Volume: 0
   m_Pitch: 0
-  m_AutomaticTriggerTime: 0
+  m_AutomaticTriggerTime: 4
   m_LoopCount: 1
   m_VolumeRandomizationRange: {x: 0, y: 0}
   m_PitchRandomizationRange: {x: 0, y: 0}
-  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 7.912088}
   m_LoopCountRandomizationRange: {x: 0, y: 0}
   m_Elements:
   - {fileID: 8210572318563272059}
   - {fileID: -5524756283903001013}
-  m_AvoidRepeatingLast: 0
-  m_PlaybackMode: 1
+  - {fileID: 561106452059760680}
+  m_AvoidRepeatingLast: 2
+  m_PlaybackMode: 2
   m_TriggerMode: 1
-  m_AutomaticTriggerMode: 1
-  m_LoopMode: 1
+  m_AutomaticTriggerMode: 0
+  m_LoopMode: 0
   m_VolumeRandomizationEnabled: 0
   m_PitchRandomizationEnabled: 0
-  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 1
   m_LoopCountRandomizationEnabled: 0
 --- !u!1233149941 &8210572318563272059
 AudioContainerElement:
