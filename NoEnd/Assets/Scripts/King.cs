@@ -64,6 +64,8 @@ public class King : MonoBehaviour, IDamageable
     Vector3 _carriageRestPosition;
     Vector3 _carriageStartPosition;
     Vector3 _carriageEndPosition;
+
+    Vector3 _startPosition = new Vector3(30f, 0f, 15f);
     
     private AudioSource _sfx;
 
@@ -99,7 +101,7 @@ public class King : MonoBehaviour, IDamageable
 
         _npcMovement.enabled = false;
         _meshParent.SetActive(false);
-
+        transform.position = _startPosition;
         StartCoroutine(DoSequence());
     }
 
@@ -155,6 +157,7 @@ public class King : MonoBehaviour, IDamageable
 
             if(_isDead)
             {
+                transform.position = _startPosition;
                 _isDead = false;
             }
         }
@@ -205,6 +208,7 @@ public class King : MonoBehaviour, IDamageable
             yield return GoTo_Coroutine(_flowers[i].position);
             if (_isDead)
             {
+                transform.position = _startPosition;
                 yield break;
             }
             yield return new WaitForSeconds(_smellDuration);
@@ -249,6 +253,7 @@ public class King : MonoBehaviour, IDamageable
         yield return new WaitUntil(() => {
             if (_isDead)
             {
+                transform.position = _startPosition;
                 return true;
             }
             return _npcMovement.IsWithinMinTargetDistance();
